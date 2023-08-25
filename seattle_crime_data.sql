@@ -55,76 +55,44 @@ delete from sdp_crime_data
     	- Why might certain months have more crimes than others?
 */
 
-/*
-    The first CTE will part out the individual year and month values from the timestamp and count up the crimes per month
-    The second CTE will use the first CTEs output to rank the months with the most offenses
-    The third CTE filters out the values in the second CTE so it only displays the 1st ranked months with the most crimes 
-*/
+-- The first CTE will output the total offenses in all 12 months in a year from 2008-2022  
 	
-with crimes_per_month as ( 
-	select distinct
-	    count(*) as crimes
-	  , date_part('year', s.offense_date) as year_number -- part out year value of timestamp
-      	  , date_part('month', s.offense_date) as month_number -- part out month value of timestamp
-	    -- use date_part to make an easier user view when looking at months
-	from
-	    sdp_crime_data s
-	group by
-	    year_number
-	  , month_number
-	order by
-	    year_number desc
-	  , month_number desc
-	
-) -- cte for total crimes in a month
+with offenses_per_month_and_year as (
+    select
+	 count(*) as offense_count -- count up total offenses of every month of every year
+       , date_part('year', s.offense_date) as year_num -- part out year from timestamp
+       , date_part('month', s.offense_date) as month_num -- part our month from timestamp
+     from
+	 sdp_crime_data s
+     where 
+	 date_part('year', s.offense_date) < 2023 -- use data from 2008-2022 since 2023 is not over
+     group by
+	 year_num
+       , month_num
+     order by
+	year_num desc
+		
+) -- CTE displaying the amount of offenses in every month of every year 
 
-, months_ranked as ( 
-	select
-	    c.crimes
-	  , c.year_number
-	  , c.month_number
-	  , dense_rank() over(partition by c.year_number order by c.crimes desc) as rank_val
-	    -- use dense_rank to rank which month of every year has the most crimes
-	from
-	    crimes_per_month c
-	order by
-	    c.year_number desc
-	  , c.month_number desc
-	
-) -- cte to rank months with most crimes
-
-, months_with_most_crimes as (
-	select
-	    m.crimes
-	  , m.year_number
-	  , m.month_number
-	  , m.rank_val
-	from
-	    months_ranked m
-	where
-	    rank_val = 1 -- output only the months with the most crimes per year
-	
-) -- cte displaying only the months of the year with a rank of '1'
-
--- Output which months were ranked 1st in crimes from 2008-2022
+-- Use select statement to output the average crimes per month from 2008-2022 and which months have the most crimes
 	
 select
-    m.month_number 
-  , count(m.month_number) as most_occurences_of_month -- counts how many times a month was ranked first
+    o.month_num
+  , round(avg(o.offense_count),0) as avg_offenses_per_month -- avg the amount of crimes committed per year
 from
-    months_with_most_crimes m
-  , months_ranked mr
+    offenses_per_month_ranked_by_year o
 group by
-    m.month_number
-order by
-    most_occurences desc
+    o.month_num
+order by 
+    avg_offenses_per_month desc -- rank 
 
 /* 
-    Analysis 1 Results: 
-    - Historically, January has the most crimes out of every month in the data
-    - Behind January is May, and August
-    - January could see a spike in intoxicated driving due to New Year
-    - Studies have shown that summer months typically see a positive correlation between crime rates and high temperatures 
+    Analysis 1 Results:
+    - May has the most crimes per month in the data, with 6176 crimes/month
+    - Studies have shown a positive correlation with rise in temperatures and crime rates
+    - October follows second, perhaps due to Halloween 
+    - August, July, and September follow after, supporting the correlation with temperature and crime
+    - January is in 5th place, perhaps due to intoxicated drivers around New Years
 */
 
 /*	
