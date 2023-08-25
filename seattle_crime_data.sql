@@ -4,11 +4,15 @@
     - Los_Angeles uses Pacific Daylight Time time zone in PostgreSQL
 */
 
+-- Use update functions to update dates without timezones
+
 update sdp_crime_data
     set offense_date = offense_date at time zone 'America/Los_Angeles' -- add the timezone PDT
 
 update sdp_crime_data
     set report_date = report_date at time zone 'America/Los_Angeles' -- add the timezone PDT
+
+-- Select statement to see if the updates worked
 	
 select
     s.offense_date as offense_date_pdt_ts
@@ -37,6 +41,8 @@ alter table sdp_crime_data
 	  which would give an inaccurate reading to the tens of thousands of records from 2008-2022
 */
 
+-- Use caution when using delete function due to its destructive use
+
 delete from sdp_crime_data 
 	where
 		offense_date < '2008-01-01' -- delete all records before 2008
@@ -49,6 +55,10 @@ delete from sdp_crime_data
     	- Why might certain months have more crimes than others?
 */
 
+/*
+    Create multiple CTEs to reference the results multiple times throughout the query
+    and make the code easier to read compared to adding multiple subqueries
+*/
 with crimes_per_month as ( 
 	select distinct
 	    count(*) as crimes
@@ -119,6 +129,8 @@ order by
 	- What occurred during these years that might have increased crime?
 */
 
+-- Take year out of offense_date in order to see the values associated with the specific year
+	
 select
     date_part('year', s.offense_date) as year_number -- part out year value of timestamp
   , count(*) as total_crimes_in_year -- count how many crimes are in each year
@@ -140,8 +152,10 @@ order by
     Using the most relevant data (2008-2022) on average, how fast do people report offenses?
 */
 
+-- Since this is a shorter, more simple query, we can use a subquery instead of multiple CTEs
+	
 select
-    avg(report_time) as avg_time_for_report
+    avg(report_time) as avg_time_for_report -- output the average amount of time for a report to be made
 from
 	(
 		select
@@ -164,6 +178,11 @@ from
 /*
     Analysis 4: 
     On average, what offenses happen the most throughout the years?
+*/
+/*
+    Use another subquery due to the ease of code maintenance
+    The subquery counts up the crimes associated with a given offense
+    The parent query ranks the specific offense by the number of offenses it has each year
 */
 
 select
@@ -197,6 +216,8 @@ order by
     - Aggravated assault follows behind 'All Other Larceny'
 */
 
+-- Use select statement to find the records with offense of 'All Other Larceny'
+
 select 
     s.*
 from 
@@ -214,6 +235,13 @@ where
     Analysis 5: 
     - The MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle.
     - Since its establishment in 2015, has crime decreased in its cities?
+*/
+
+/*
+   The first CTE will be used to sum up the number of offenses per year
+   The second CTE is a statistical summary of the years before the MCPP was implemented (2008-2014)
+   The third CTE is a statistical summary of the years after the MCPP was implemented (2015-2022)
+   Statistical summaries will compare average, min, and max crimes before and after the MCPP was implemented
 */
 
 with offenses_per_year as (
@@ -263,6 +291,8 @@ with offenses_per_year as (
 	
 ) -- create statistical summary of offenses committed per year after the MCPP was implemented
 
+-- output statistical summary comparing the amount of offenses before and after MCPP was implemented
+
 select
     b.avg_offenses_before_mcpp
   , a.avg_offenses_after_mcpp
@@ -273,8 +303,6 @@ select
 from
     before_mcpp b
   , after_mcpp a
- 
--- output statistical summary comparing the amount of offenses before and after MCPP was implemented
 
 /*
     Analysis 5 Results:
@@ -289,6 +317,8 @@ from
     Which communities have the lowest crime rates, and are the safest?
 */ 
 
+-- Use select to see how many communities reside in the MCPP program
+
 select
     count(distinct s.mcpp) -- count how many communities are included, and use distinct to eliminate duplicate values
 from
@@ -296,32 +326,32 @@ from
 
 -- A total of 60 communities are included
 
+/*
+    The next query is almost identical to the 'offenses_per_year' CTE in analysis 5
+    However, I replaced 'offence' in the subquery to 'mcpp' to group crimes by the mcpp community
+    I also replaced 'sum' in the parent query with 'round((avg))' to find the avg crimes per year in a community
+*/ 
+
 select
     mcpp
-  , round(avg(offense_count),0) as avg_offenses_by_year
+  , round(avg(offense_count),0) as avg_offenses_by_year 
     -- find on average how many crimes occurred in a certain community per year from 2008-2022
 from
 	(
 		select
 		    date_part('year', offense_date) as year_num -- part out year value of timestamp
-		  , s.mcpp
+		  , s.mcpp -- list out MCPP communities
 		  , count(*) as offense_count -- count up total offenses
 		from
 		    sdp_crime_data s
 		group by
 		    year_num
-		  , s.mcpp
+		  , s.mcpp -- group offenses by MCPP community
 	) as mcpp_offenses_per_year
 group by 
     mcpp
 order by
-    avg_offenses_by_year asc -- order by communities with the least crimes per year
-	
-/*
-    - This query is almost identical to the 'offenses_per_year' cte in analysis 5
-    - However, I replaced 'offence' in the subquery to 'mcpp' to group crimes by the mcpp community
-    - I also replaced 'sum' in the parent query with 'round((avg))' to find the avg crimes per year in a community
-*/ 
+    avg_offenses_by_year asc -- order by ascending to see the safest communities, descending to see the most dangerous
 
 /*
     Analysis 6 Results:
