@@ -30,6 +30,17 @@ alter table sdp_crime_data
   , drop beat
 ;
 
+/*
+    - I will only use data from 2008-2022 due to these reasons
+    - The inclusion of 2023 would give an inaccurate reading, until the year is finished 
+    - Years 1908-2007 include less than 1200 offenses each year and contains inaccurate data,
+	  which would give an inaccurate reading to the tens of thousands of records from 2008-2022
+*/
+
+delete from sdp_crime_data 
+	where
+		offense_date < '2008-01-01' -- delete all records before 2008
+	
 -- Data is cleaned and prepared
 
 /*
@@ -124,17 +135,9 @@ order by
     - 2020, 2018, 2022, 2017, and 2021 are the top five years with the most crimes
 */
 
-/* 
-    - From now on, I use data from 2008-2022 since 2023 is not over
-    - The inclusion of 2023 would give an inaccurate reading, until the year is finished 
-    - Years 1908-2007 include less than 1200 offenses each year and contain inaccurate data,
-         which would give an inaccurate reading of the tens of thousands of records from 2008-2022		
-*/
-
 /*
     Analysis 3: 
     Using the most relevant data (2008-2022) on average, how fast do people report offenses?
-	- 
 */
 
 select
@@ -150,8 +153,6 @@ from
 		from
 		    sdp_crime_data s
 	) as time_between_report
-where
-	offense_date >= '2008-01-01'
 		
  -- subquery displaying how long the report time was after an offense occured on all years 2008 and after
 
@@ -185,8 +186,6 @@ from
 		limit 
 		    100
 	) as offenses_committed -- create subquery to divide complex query into simple, logical steps
-where 
-    year_num >= 2008 -- use 2008 and after for data relevancy
 order by
     year_num desc
   , rank_val asc
@@ -229,8 +228,6 @@ with offenses_per_year as (
 	  		  , count(*) as offense_count -- count offenses by offense type
 			from
 			    sdp_crime_data s
-			where	
-			    date_part('year', offense_date) between 2008 and 2022 -- select values between 2008-2022
 			group by
 			    year_num
 	  		  , s.offense
@@ -311,8 +308,6 @@ from
 		  , count(*) as offense_count -- count up total offenses
 		from
 		    sdp_crime_data s
-		where	
-		    date_part('year', offense_date) between 2008 and 2022 -- select values between 2008-2022
 		group by
 		    year_num
 		  , s.mcpp
@@ -336,6 +331,13 @@ order by
 	3. Pigeon Point, 85 crimes/year
 	4. Eeastlake - East, 106 crimes/year
 	5. Genesee, 209 crimes/year
+
+    The most dangerous communities in MCPP:
+	1. Downtown Commerical, 5583 crimes/year
+	2. Capitol Hill, 4160 crimes/year
+	3. Northgate, 3877 crimes/year
+	4. Queen Anne, 3473 crimes/year
+	5. Slu/Cascade, 3021 crimes/year
 */
 
 
