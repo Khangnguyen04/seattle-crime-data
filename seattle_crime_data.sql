@@ -56,9 +56,11 @@ delete from sdp_crime_data
 */
 
 /*
-    Create multiple CTEs to reference the results multiple times throughout the query
-    and make the code easier to read compared to adding multiple subqueries
+    The first CTE will part out the individual year and month values from the timestamp and count up the crimes per month
+    The second CTE will use the first CTEs output to rank the months with the most offenses
+    The third CTE filters out the values in the second CTE so it only displays the 1st ranked months with the most crimes 
 */
+	
 with crimes_per_month as ( 
 	select distinct
 	    count(*) as crimes
@@ -104,6 +106,8 @@ with crimes_per_month as (
 	
 ) -- cte displaying only the months of the year with a rank of '1'
 
+-- Output which months were ranked 1st in crimes from 2008-2022
+	
 select
     m.month_number 
   , count(m.month_number) as most_occurences_of_month -- counts how many times a month was ranked first
@@ -152,7 +156,10 @@ order by
     Using the most relevant data (2008-2022) on average, how fast do people report offenses?
 */
 
--- Since this is a shorter, more simple query, we can use a subquery instead of multiple CTEs
+/*
+    Use a subquery to calculate the time it takes for each offense to be reported after it was committed
+    The parent query calculates the average time it takes for every offense to be reported
+*/
 	
 select
     avg(report_time) as avg_time_for_report -- output the average amount of time for a report to be made
@@ -167,8 +174,6 @@ from
 		from
 		    sdp_crime_data s
 	) as time_between_report
-		
- -- subquery displaying how long the report time was after an offense occured on all years 2008 and after
 
 /*
     Analysis 3 Results: 
@@ -179,6 +184,7 @@ from
     Analysis 4: 
     On average, what offenses happen the most throughout the years?
 */
+
 /*
     Use another subquery due to the ease of code maintenance
     The subquery counts up the crimes associated with a given offense
@@ -216,7 +222,7 @@ order by
     - Aggravated assault follows behind 'All Other Larceny'
 */
 
--- Use select statement to find the records with offense of 'All Other Larceny'
+-- Use select statement to find the records filtered with 'offense' of 'All Other Larceny'
 
 select 
     s.*
@@ -241,7 +247,7 @@ where
    The first CTE will be used to sum up the number of offenses per year
    The second CTE is a statistical summary of the years before the MCPP was implemented (2008-2014)
    The third CTE is a statistical summary of the years after the MCPP was implemented (2015-2022)
-   Statistical summaries will compare average, min, and max crimes before and after the MCPP was implemented
+   Statistical summaries will compare average, min, and max crimes within the years before and after MCPP was implemented
 */
 
 with offenses_per_year as (
