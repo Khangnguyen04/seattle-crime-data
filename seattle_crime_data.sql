@@ -1,6 +1,6 @@
 /*
     Data cleaning process: 
-    - Reformat offense_date and report_date with timezone (Pacific Daylight Time)
+    - Reformat offense_date and report_date with timezone (Pacific Daylight Time), since data resides in Seattle
     - Los_Angeles uses Pacific Daylight Time time zone in PostgreSQL
 */
 
@@ -35,6 +35,7 @@ alter table sdp_crime_data
 /*
     Analysis 1: 
     Historically, what months have the most crimes out of the years?
+    	- Why might certain months have more crimes than others?
 */
 
 with crimes_per_month as ( 
@@ -97,11 +98,14 @@ order by
     Analysis 1 Results: 
     - Historically, January has the most crimes out of every month in the data
     - Behind January is May, and August
+    - January could see a spike in intoxicated driving due to New Year
+    - Studies have shown that summer months typically see a positive correlation between crime rates and high temperatures 
 */
 
 /*	
     Analysis 2: 
     Historically, what years have the most crimes?
+	- What occurred during these years that might have increased crime?
 */
 
 select
@@ -116,21 +120,21 @@ order by
 	
 /*
     Analysis 2 Results: 
-    - 2020 has the most crimes. BLM protests, and covid, both at peak in 2020
+    - 2020 has the most crimes. BLM protests, and COVID, both at their peak in 2020
     - 2020, 2018, 2022, 2017, and 2021 are the top five years with the most crimes
-    - Upward trend in crime from 1908-2023
 */
 
 /* 
     - From now on, I use data from 2008-2022 since 2023 is not over
     - The inclusion of 2023 would give an inaccurate reading, until the year is finished 
-    - Years 1908-2007 include less than 1200 offenses each year and contains inaccurate data,
-         which would give an inaccurate reading to the tens of thousands of records from 2008-2022		
+    - Years 1908-2007 include less than 1200 offenses each year and contain inaccurate data,
+         which would give an inaccurate reading of the tens of thousands of records from 2008-2022		
 */
 
 /*
     Analysis 3: 
     Using the most relevant data (2008-2022) on average, how fast do people report offenses?
+	- 
 */
 
 select
