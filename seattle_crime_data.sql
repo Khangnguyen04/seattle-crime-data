@@ -319,9 +319,9 @@ order by
     avg_offenses_by_year asc -- order by communities with the least crimes per year
 	
 /*
-    this query is almost identical to the 'offenses_per_year' cte in analysis 5
-    however, I replaced 'offence' in the subquery to 'mcpp' to group crimes by the mcpp community
-    i also replaced 'sum' in the parent query with 'round((avg))' to find the avg crimes per year in a community
+    - This query is almost identical to the 'offenses_per_year' cte in analysis 5
+    - However, I replaced 'offence' in the subquery to 'mcpp' to group crimes by the mcpp community
+    - I also replaced 'sum' in the parent query with 'round((avg))' to find the avg crimes per year in a community
 */ 
 
 /*
