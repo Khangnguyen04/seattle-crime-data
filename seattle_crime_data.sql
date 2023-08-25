@@ -92,7 +92,7 @@ order by
     - Studies have shown a positive correlation with rise in temperatures and crime rates
     - October follows second, perhaps due to Halloween 
     - August, July, and September follow after, supporting the correlation with temperature and crime
-    - January is in 5th place, perhaps due to intoxicated drivers around New Years
+    - January is in 6th place, perhaps due to intoxicated drivers around New Years
 */
 
 /*	
