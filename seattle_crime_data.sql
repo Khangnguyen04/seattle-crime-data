@@ -89,7 +89,7 @@ order by
 /* 
     Analysis 1 Results:
     - May has the most crimes per month in the data, with 6176 crimes/month
-    - Studies have shown a positive correlation with rise in temperatures and crime rates
+        * Studies have shown a positive correlation with rise in temperatures and crime rates
     - October follows second, perhaps due to Halloween 
     - August, July, and September follow after, supporting the correlation with temperature and crime
     - January is in 6th place, perhaps due to intoxicated drivers around New Years
@@ -97,8 +97,8 @@ order by
 
 /*	
     Analysis 2: 
-    Historically, what years have the most crimes?
-	- What occurred during these years that might have increased crime?
+    - Historically, what years have the most crimes?
+	* What occurred during these years that might have increased crime?
 */
 
 -- Take year out of offense_date in order to see the values associated with the specific year
@@ -114,11 +114,37 @@ order by
     total_crimes_in_year desc
 	
 /*
-    Analysis 2 Results: 
-    - 2020 has the most crimes. BLM protests, and COVID, both at their peak in 2020
+    Analysis 2 Results:
+    - 2020 has the most crimes.
+        * Create an index table to find the months where crime spiked in 2020
     - 2020, 2018, 2022, 2017, and 2021 are the top five years with the most crimes
 */
 
+-- Create an index table for the database to search for offenses in 2020 quickly
+-- Helps with query speed and performance
+
+create index offenses_committed_offense_date_idx
+    on sdp_crime_data (offense_date) -- create an index on offense dates
+
+select
+    date_part('month', s.offense_date) as month_num -- part month out of offense date
+  , count(*) as offense_count -- count every offense per month
+from
+    sdp_crime_data s
+where
+    s.offense_date between '2020-01-01' and '2020-12-31' -- select offenses in 2020 only
+group by 
+    date_part('month', s.offense_date) -- group by month number
+order by
+    offense_count desc -- order by months with most crimes
+
+/*
+	Analysis 2 Results Cont:
+	- May reported the most offenses in 2020 with a staggering 11692 crimes
+		* On May 25th 2020, the death of George Floyd sparked major protests in the US
+	- March follows after with 6615 crimes
+		* March 11th 2020 marked the date Covid-19 was declared a pandemic
+*/
 /*
     Analysis 3: 
     Using the most relevant data (2008-2022) on average, how fast do people report offenses?
