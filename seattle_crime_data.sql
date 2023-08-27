@@ -145,6 +145,7 @@ order by
     - March follows after with 6615 crimes
 	* March 11th 2020 marked the date Covid-19 was declared a pandemic
 */
+	
 /*
     Analysis 3: 
     Using the most relevant data (2008-2022) on average, how fast do people report offenses?
