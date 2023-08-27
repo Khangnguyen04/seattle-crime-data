@@ -139,11 +139,11 @@ order by
     offense_count desc -- order by months with most crimes
 
 /*
-	Analysis 2 Results Cont:
-	- May reported the most offenses in 2020 with a staggering 11692 crimes
-		* On May 25th 2020, the death of George Floyd sparked major protests in the US
-	- March follows after with 6615 crimes
-		* March 11th 2020 marked the date Covid-19 was declared a pandemic
+    Analysis 2 Results Cont:
+    - May reported the most offenses in 2020 with a staggering 11692 crimes
+	* On May 25th 2020, the death of George Floyd sparked major protests in the US
+    - March follows after with 6615 crimes
+	* March 11th 2020 marked the date Covid-19 was declared a pandemic
 */
 /*
     Analysis 3: 
