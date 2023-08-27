@@ -84,7 +84,7 @@ from
 group by
     o.month_num
 order by 
-    avg_offenses_per_month desc -- rank 
+    avg_offenses_per_month desc -- rank by average offenses per month from greatest to least
 
 /* 
     Analysis 1 Results:
