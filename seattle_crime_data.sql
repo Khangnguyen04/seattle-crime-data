@@ -269,9 +269,9 @@ with offenses_per_year as (
 
 , before_mcpp as (
 	select
-	    round(avg(o.sum_offenses),0) as avg_offenses_before_mcpp -- round to 0
-	  , round(min(o.sum_offenses),0) as min_offenses_before_mcpp -- round to 0
-	  , round(max(o.sum_offenses),0) as max_offenses_before_mcpp -- round to 0
+	    round(avg(o.sum_offenses),0) as avg_offenses_per_year_before_mcpp -- round to 0
+	  , round(min(o.sum_offenses),0) as min_offenses_per_year_before_mcpp -- round to 0
+	  , round(max(o.sum_offenses),0) as max_offenses_per_year_before_mcpp -- round to 0
 	from
 	    offenses_per_year o
 	where
@@ -281,9 +281,9 @@ with offenses_per_year as (
 
 , after_mcpp as (
 	select
-	    round(avg(o.sum_offenses),0) as avg_offenses_after_mcpp -- round to 0 
-	  , round(min(o.sum_offenses),0) as min_offenses_after_mcpp -- round to 0
-	  , round(max(o.sum_offenses),0) as max_offenses_after_mcpp -- round to 0
+	    round(avg(o.sum_offenses),0) as avg_offenses_per_year_after_mcpp -- round to 0 
+	  , round(min(o.sum_offenses),0) as min_offenses_per_year_after_mcpp -- round to 0
+	  , round(max(o.sum_offenses),0) as max_offenses_per_year_after_mcpp -- round to 0
 	from
 	    offenses_per_year o
 	where
@@ -294,12 +294,12 @@ with offenses_per_year as (
 -- output statistical summary comparing the amount of offenses before and after MCPP was implemented
 
 select
-    b.avg_offenses_before_mcpp
-  , a.avg_offenses_after_mcpp
-  , b.min_offenses_before_mcpp
-  , a.min_offenses_after_mcpp
-  , b.max_offenses_before_mcpp
-  , a.max_offenses_after_mcpp
+    b.avg_offenses_per_year_before_mcpp
+  , a.avg_offenses_per_year_after_mcpp
+  , b.min_offenses_per_year_before_mcpp
+  , a.min_offenses_per_year_after_mcpp
+  , b.max_offenses_per_year_before_mcpp
+  , a.max_offenses_per_year_after_mcpp
 from
     before_mcpp b
   , after_mcpp a
@@ -334,7 +334,7 @@ from
 
 select
     mcpp
-  , round(avg(offense_count),0) as avg_offenses_by_year 
+  , round(avg(offense_count),0) as avg_offenses_per_year 
     -- find on average how many crimes occurred in a certain community per year from 2008-2022
 from
 	(
@@ -351,7 +351,7 @@ from
 group by 
     mcpp
 order by
-    avg_offenses_by_year asc -- order by ascending to see the safest communities, descending to see the most dangerous
+    avg_offenses_per_year asc -- order by ascending to see the safest communities, descending to see the most dangerous
 
 /*
     Analysis 6 Results:
