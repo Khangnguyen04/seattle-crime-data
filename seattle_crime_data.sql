@@ -44,8 +44,8 @@ alter table sdp_crime_data
 -- Use caution when using delete function due to its destructive use
 
 delete from sdp_crime_data 
-	where
-		offense_date < '2008-01-01' -- delete all records before 2008
+    where
+       offense_date < '2008-01-01' -- delete all records before 2008
 	
 -- Data is cleaned and prepared
 
