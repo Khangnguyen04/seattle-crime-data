@@ -109,6 +109,7 @@ For best use, pull up the SQL code found in this repo and split screen the docum
         * Subquery
         
             - Use 'age' to return the time between the report date and offense date. Name this function as 'report_time' for the parent query
+	    
 	    - Use 'where' clause to filter the average time for reports that occur only in 2023 for recency purposes
 
         * Parent Query
