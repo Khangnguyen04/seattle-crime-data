@@ -41,7 +41,7 @@ This is a step by step guide of each analysis and how I used SQL to find my insi
 For best use, pull up the SQL code found in this repo and split screen the documentation and code to read along with it.
 
 ### Data Cleaning
-      - I reformatted 'offense_date' and 'report_date' with Pacific Daylight Time time zone using since SQL deals with systems from different parts of the world, I need to present timestamps consistently across different time zones.
+      - I reformatted 'offense_date' and 'report_date' with Pacific Daylight Time time zone since using SQL deals with systems from different parts of the world, I need to present timestamps consistently across different time zones.
       
       - I removed columns group_a_b, offense_code, sector, and beat since I will not be used these columns within my analysis.
       
@@ -52,17 +52,49 @@ For best use, pull up the SQL code found in this repo and split screen the docum
 ### Analysis 1
       - Do more months have more crimes than others? Can crime be seasonal?
       
-          * The first CTE in the query  will output the total offenses in every month of a year
+          * The first CTE in the query  will output the total offenses in every month of the year
+          
               - We use 'count(*)' to total up offenses of every month
+              
               - Use 'date_part' to part out the year from the timestamp
               - Use 'date_part' to part out the month from the timestamp
                   * By parting the year and month, we can analyze them 
-                    seperately since it is a timestamp integer
+                    separately since it is a timestamp integer
+                    
               - Use 'where' to only use data from 2008-2022
               
-          * Now use a select statament to putpot the average crimes per month from 2008-2022
+          * Now use a select statement to output the average crimes per month from 2008-2022
+          
               - Use 'round(avg))' to average the amount of crimes committed per month, and round to 0
+              
               - Finally order the query by 'avg_offenses_per_month desc' to rank the months by most average offenses
+
+### Analysis 2:
+      - Historically, what years have the most crimes? Why might some years have more crimes than others?
+
+        * The query will take the year out of 'offense_date' to see the count of offenses associated with the specific year
+        
+            - Use 'date_part' to part year out of timestamp
+            
+            - Use 'count(*)' to count how many crimes are in each year
+
+        * The next index finds the months where crime spiked in 2020 (the year in the dataset with the most crimes)
+        
+            - Create an index table for the database to search for offenses in 2020 quickly without sacrificing query speed and performance
+            
+            - Use 'create index' to create the index on offense dates
+            
+            - Use'date_part' to part month out of 'offense_date'
+            
+            - Use 'count(*)' to count the total offenses per month in 2020
+            
+            - Use 'where' to filter out values to only use data between ' 2020-01-01' and '2020-12-31' to ensure we only use values in 2020
+            
+            - Use 'group by' to group the offenses by month
+            
+            - Use 'order by' to order the months with the most crimes
+
+### Analysis 3:
               
 
 
