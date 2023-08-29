@@ -35,10 +35,11 @@ alter table sdp_crime_data
 ;
 
 /*
-    - I will only use data from 2008-2022 due to these reasons
+    - I use data from 2008-2022 for most of these queries due to these reasons
     - The inclusion of 2023 would give an inaccurate reading, until the year is finished 
     - Years 1908-2007 include less than 1200 offenses each year and contains inaccurate data,
 	  which would give an inaccurate reading to the tens of thousands of records from 2008-2022
+    - I will still use 2023 for more recent insights
 */
 
 -- Use caution when using delete function due to its destructive use
@@ -168,11 +169,13 @@ from
 		    -- age returns the time between the two different dates.
 		from
 		    sdp_crime_data s
+		where
+		    s.offense_date between '2023-01-01' and '2023-12-31' -- report the average time only in 2023
 	) as time_between_report
 
 /*
     Analysis 3 Results: 
-    The average time to make a report is 7 days and 10 hours
+    The average time to make a report is 2 days
 */
 
 /*
