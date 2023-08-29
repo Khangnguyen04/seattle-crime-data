@@ -26,7 +26,7 @@ Use dataset to find several analyses in the data using SQL queries and Tableau v
     
   * **Analysis 2**: Historically, what years have the most crimes? Why might some years have more crimes than others?
     
-  * **Analysis 3**: How fast do on average, do people report offenses?
+  * **Analysis 3**: How fast on average, do people report offenses?
     
   * **Analysis 4**: On average, what offenses happen the most throughout the years?
     
@@ -46,6 +46,7 @@ This is a step by step guide of each analysis and how I used SQL to find my insi
 For best use, pull up the SQL code found in this repo and split screen the documentation and code to read along with it.
 
 ### Data Cleaning
+
       - I reformatted 'offense_date' and 'report_date' with Pacific Daylight Time time zone since using SQL deals with systems from different parts of the world, I need to present timestamps consistently across different time zones.
       
       - I removed columns group_a_b, offense_code, sector, and beat since I will not be used these columns within my analysis.
@@ -55,6 +56,7 @@ For best use, pull up the SQL code found in this repo and split screen the docum
       - The data is cleaned and prepared for analysis
         
 ### Analysis 1:
+
      Do more months have more crimes than others? Can crime be seasonal?
       
      * The first CTE in the query  will output the total offenses in every month of the year
@@ -220,6 +222,8 @@ The following insights will be supported by various sources of data including vi
 
 This bar chart displays the total offenses per month in 2023. The year 2023 may be an outlier in the data since crime actually drops around May and the beginning of June.
 
+A solution to drop crime rates in the summer months could be to push community engagement through festivals, gatherings, etc. where the gatherings can increase the visibility of police, which can deter criminal activity
+
 ### Analysis 2 Results
     
     Historically, what years have the most crimes? Why might some years have more crimes than others?
@@ -233,14 +237,110 @@ This bar chart displays the total offenses per month in 2023. The year 2023 may 
 
 
   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/08d00892-e90c-4141-873c-99f61adc334d)
+  
 
   This bar chart compares the total offenses by year in the data. We see clearly that 2020 has a huge spike in crimes.
+  
 
   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/2dea7462-a7d3-4572-80b3-ab961752aaa7)
+  
 
-  We see that burglary, destruction/damage of property, and motor vehicle theft all spike during 2020. A possible outcome    of the BLM protests.
+  We see that burglary, destruction/damage of property, and motor vehicle theft all spike during 2020. A possible outcome    of the BLM protests and Covid-19.
   
+
+  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/7ae94a1d-a66f-4ccc-97c8-6fc9cedc0d9f)
+
   
+  A dramatic 8.30% increase in crime can be seen from 2019 to 2020 further proving the case.
+
+  ### Analysis 3 Results
+
+      How fast on average, do people report offenses?
+
+      On average, The average time to make a report is 2 days.
+
+   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/858ec88d-346e-46ca-9313-17e4bad78b0e)
+
+
+   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/2515cf1a-ef62-4f02-81a2-5131d4ccd11e)
+
+
+   The SQL code and output for the average time to make a report
+
+   One solution for making the report time faster could be a mobile app that allows citizens to report crimes quickly 
+   from their phones. You could also launch campaigns to educate the public reporting crimes ASAP.
+
+  ### Analysis 4 Results
+
+      On average, what offenses happen the most throughout the years?
+
+      From 2008-2022, larceny and theft occur the most. Aggravated assault follows right after in the data.
+
+  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/398744f6-1bc2-4c4e-87dc-344397a79736)
+
+  In the recent years, larceny and theft have still occurred the most, following are still assault offenses.
+
+  As an analyst for a police department aiming to reduce larceny and theft crimes, you can identify geographical hotspots 
+  where they occur to focus resources on these high-crime areas
+
+  You can also identify time patterns to see when these crimes frequently occur in these areas to increase patrol.
+
+  ### Analysis 5 Results
+
+      MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle and promotes a         safer community for each one included. Since its establishment in 2015, has crime decreased in its communities?
+
+      Offenses have increased since the MCPP was implemented, despite only 8 years it has been in place. Avg. offenses per       year, min offenses per year, and max offenses per year have all increased after the MCPP was implemented
+      
+	    Based on this data, MCPP has had little impact on crime rates in Seattle
+
+  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/a5c8ce54-5f95-4878-995c-a64ce6cddc01)
+
+  Before MCPP was implemented
+
+  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/48a73ea7-1cb9-4b92-9ed4-33910e3a94f8)
+
+  After MCPP was implemented
+
+  These bar charts compare the trends in offense types before and after the MCPP was implemented in 2015
+
+  If we continuously see an upward trend in crime every year, one solution may be to raise awareness about crime 
+  prevention strategies, safety tips, and community resources for the public to prioritize collaboration
+
+  Another solution could be to invest in technology such as surveillance cameras, gunshot detection systems, and crime 
+  analysis software to enhance your crime-fighting capabilities.
+
+  ## Analysis 6 Results
+
+      Which communities have the lowest crime rates, and are the safest? Which are the most dangerous?
+
+      These are the results from my SQL query for analysis 6:
+	    
+       Safest communities in MCPP:						           The most dangerous communities in MCPP:
+		    1. Commercial Harbor Island, 25 crimes/year        1. Downtown Commerical, 5583 crimes/year
+		    2. Commercial Duwamish, 47 crimes/year             2. Capitol Hill, 4160 crimes/year
+		    3. Pigeon Point, 85 crimes/year                    3. Northgate, 3877 crimes/year
+		    4. Eeastlake - East, 106 crimes/year               4. Queen Anne, 3473 crimes/year
+		    5. Genesee, 209 crimes/year                        5. Slu/Cascade, 3021 crimes/year
+		
+   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/059070a6-c867-4ed2-bdf2-aef534b87ff4)
+
+   The Safest Communities 
+
+   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/420c9d38-2d82-4385-a4d4-b25e54a05125)
+
+   The Most Dangerous Communities
+
+   For the 'dangerous' communities, we can find out what hours of the day crime occurs the most for each community and        increase patrol during those hours. Simultaneously, we can lessen the amount of officers on duty during the hours where    crime does not spike.
+
+   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/5f4b0293-71cb-4ccd-ac6b-0e7ef0a2d10b)
+
+   In the data, we see crime typically peaks around 5-6 AM, 8-9 AM, 10-11 AM and 12 PM, 4-5 PM, 7-9 PM, and midnight.
+   Knowing this information through the data, increased patrol can be placed during these times.
+
+
+
+
+
 
 
 
