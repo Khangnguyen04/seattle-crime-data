@@ -197,7 +197,26 @@ For best use, pull up the SQL code found in this repo and split screen the docum
             
             - Use 'order by' to order the average_offenses_per_year by either ascending or descending order to see which communities have the most crimes on average.
 
-            
+
+## Result
+
+These are the insights I found after extracting, manipulating, and analyzing the data using SQL queries and Tableau visualizations. Note that other insights were also found using Tableau and will be provided in this section.
+
+The following insights will be supported by various sources of data including visualizations, and facts from the internet.
+
+### Analysis 1 Results
+
+    Do more months have more crimes than others? Can crime be seasonal?
+
+    On average, May has the most crimes per month, with 6176 crimes per month. August, July, and September follow after. This data supports the studies concluding a positive correlation between high temperatures and increased crime rates.
+
+    One study done by the National Bureau of Economic Research report analyzed violent crime patterns in 36 correctional facilities. The researchers discovered that days with high heat saw an increase of 18% in violence among inmates. [Source](https://www.nber.org/papers/w25961)
+
+    
+
+
+
+
     
 
         
