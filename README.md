@@ -12,9 +12,11 @@
 
 Notes: This project analyzes Seattle's public data on every offense that was reported since 2008 onwards using PostgreSQL and visualized by Tableau. The data set is updated everyday by data.seattle.gov whenever another offense is reported. This readme file provides an in-depth documentation of the project using Amazon's "STAR" (Situation, Task, Action, Result) method to tell a cohesive and simple-to-understand story. The STAR method is typically used in interviews, however I wanted to apply it to the documentation because it provides a simple story-telling template.
 
+
 ##  Situation
 
 Seattle Police Department provides data on every crime reported since 2008 onwards, and using this data, I place myself in the shoes of an analyst within the police department trying to find insights that can improve safety in neighborhoods, and lessen crime rates in Seattle.
+
 
 ## Task
 
@@ -24,9 +26,23 @@ Use dataset to find several analyses in the data using SQL queries that could mo
   * **Analysis 2**: Historically, what years have the most crimes? Why might some years have more crimes than others?
   * **Analysis 3**: How fast do on average, do people report offenses?
   * **Analysis 4**: On average, what offenses happen the most throughout the years?
-  * **Analysis 5**: MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle.             Since its establishment in 2015, has crime decreased in it's cities?
+  * **Analysis 5**: MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle. Since its establishment in 2015, has crime decreased in it's cities?
   * **Analysis 6**: Which communities have the lowest crime rates, and are the safest? Which are the most dangerous?
 
 We will then visualize the data in Tableau for a potential police chief, deputy chief, or shift supervisor to analyze and have oversight on what decisions to make to lessen crime rates.
+
+
+## Action
+
+The software I used for my SQL queries was PostgreSQL. 
+
+This is a step by step guide of each analysis and how I used SQL to find my insights. For best use, pull up the SQL code found in this repo and split screen the documentation and code to read along with it.
+
+### Data Cleaning
+      - I reformatted 'offense_date' and 'report_date' with Pacific Daylight Time time zone since SQL deals with systems from different parts of the world, I need to present timestamps consistently across different time zones.
+      - I removed columns group_a_b, offense_code, sector, and beat since I will not be used these columns within my analysis.
+        
+  
+
 
 
