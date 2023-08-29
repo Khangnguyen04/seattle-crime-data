@@ -36,16 +36,22 @@ We will then visualize the data in Tableau for a potential police chief, deputy 
 
 The software I used for my SQL queries was PostgreSQL. 
 
-This is a step by step guide of each analysis and how I used SQL to find my insights. For best use, pull up the SQL code found in this repo and split screen the documentation and code to read along with it.
+This is a step by step guide of each analysis and how I used SQL to find my insights. 
+
+For best use, pull up the SQL code found in this repo and split screen the documentation and code to read along with it.
 
 ### Data Cleaning
       - I reformatted 'offense_date' and 'report_date' with Pacific Daylight Time time zone using since SQL deals with systems from different parts of the world, I need to present timestamps consistently across different time zones.
+      
       - I removed columns group_a_b, offense_code, sector, and beat since I will not be used these columns within my analysis.
+      
       - Deleted all records from 1908-2007 since these records are inaccurate and do not add value to the timely data from 2008-2022. 2023 will not be used in these queries since we still have four months until the end of the year.
+      
       - The data is cleaned and prepared for analysis
         
 ### Analysis 1
       - Do more months have more crimes than others? Can crime be seasonal?
+      
           * The first CTE in the query  will output the total offenses in every month of a year
               - We use 'count(*)' to total up offenses of every month
               - Use 'date_part' to part out the year from the timestamp
@@ -53,6 +59,7 @@ This is a step by step guide of each analysis and how I used SQL to find my insi
                   * By parting the year and month, we can analyze them 
                     seperately since it is a timestamp integer
               - Use 'where' to only use data from 2008-2022
+              
           * Now use a select statament to putpot the average crimes per month from 2008-2022
               - Use 'round(avg))' to average the amount of crimes committed per month, and round to 0
               - Finally order the query by 'avg_offenses_per_month desc' to rank the months by most average offenses
