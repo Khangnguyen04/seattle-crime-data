@@ -78,7 +78,7 @@ For best use, pull up the SQL code found in this repo and split screen the docum
             
             - Use 'count(*)' to count how many crimes are in each year
 
-        * The next index finds the months where crime spiked in 2020 (the year in the dataset with the most crimes)
+        * The next query finds the months where crime spiked in 2020 (the year in the dataset with the most crimes)
         
             - Create an index table for the database to search for offenses in 2020 quickly without sacrificing query speed and performance
             
