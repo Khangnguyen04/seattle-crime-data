@@ -109,6 +109,7 @@ For best use, pull up the SQL code found in this repo and split screen the docum
         * Subquery
         
             - Use 'age' to return the time between the report date and offense date. Name this function as 'report_time' for the parent query
+	    - Use 'where' clause to filter the average time for reports that occur only in 2023 for recency purposes
 
         * Parent Query
         
@@ -291,9 +292,9 @@ A solution to drop crime rates in the summer months could be to push community e
 
   ### Analysis 5 Results
 
-      MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle and promotes a         safer community for each one included. Since its establishment in 2015, has crime decreased in its communities?
+      MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle and promotes a safer community for each one included. Since its establishment in 2015, has crime decreased in its communities?
 
-      Offenses have increased since the MCPP was implemented, despite only 8 years it has been in place. Avg. offenses per       year, min offenses per year, and max offenses per year have all increased after the MCPP was implemented
+      Offenses have increased since the MCPP was implemented, despite only 8 years it has been in place. Avg. offenses per year, min offenses per year, and max offenses per year have all increased after the MCPP was implemented
       
 	    Based on this data, MCPP has had little impact on crime rates in Seattle
 
@@ -319,7 +320,7 @@ A solution to drop crime rates in the summer months could be to push community e
 
       These are the results from my SQL query for analysis 6:
 	    
-       Safest communities in MCPP:						           The most dangerous communities in MCPP:
+       Safest communities in MCPP:				The most dangerous communities in MCPP:
 		    1. Commercial Harbor Island, 25 crimes/year        1. Downtown Commerical, 5583 crimes/year
 		    2. Commercial Duwamish, 47 crimes/year             2. Capitol Hill, 4160 crimes/year
 		    3. Pigeon Point, 85 crimes/year                    3. Northgate, 3877 crimes/year
