@@ -39,8 +39,10 @@ The software I used for my SQL queries was PostgreSQL.
 This is a step by step guide of each analysis and how I used SQL to find my insights. For best use, pull up the SQL code found in this repo and split screen the documentation and code to read along with it.
 
 ### Data Cleaning
-      - I reformatted 'offense_date' and 'report_date' with Pacific Daylight Time time zone since SQL deals with systems from different parts of the world, I need to present timestamps consistently across different time zones.
+      - I reformatted 'offense_date' and 'report_date' with Pacific Daylight Time time zone using since SQL deals with systems from different parts of the world, I need to present timestamps consistently across different time zones.
       - I removed columns group_a_b, offense_code, sector, and beat since I will not be used these columns within my analysis.
+      - Deleted all records from 1908-2007 since these records are inaccurate and do not add value to the timely data from 2008-2022. 2023 will not be used in these queries since we still have four months until the end of the year.
+      - The data is cleaned and prepared for analysis
         
   
 
