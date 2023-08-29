@@ -18,4 +18,12 @@ Seattle Police Department provides data on every crime reported since 2008 onwar
 
 ## Task
 
+Use dataset to find several analyses in the data using SQL queries that could monitor safety, and lessen crime rates.
+  * **Analysis 1**: Do more months have more crimes than others? Can crime be seasonal?
+  * **Analysis 2**: Historically, what years have the most crimes? Why might some years have more crimes than others?
+  * **Analysis 3**: How fast do on average, do people report offenses?
+  * **Analysis 4**: On average, what offenses happen the most throughout the years?
+  * **Analysis 5**: MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle.             Since its establishment in 2015, has crime decreased in it's cities?
+  * **Analysis 6**: Which communities have the lowest crime rates, and are the safest? Which are the most dangerous?
+
 
