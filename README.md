@@ -20,7 +20,7 @@ Seattle Police Department provides data on every crime reported since 2008 onwar
 
 ## Task
 
-Use dataset to find several analyses in the data using SQL queries that could monitor safety, and lessen crime rates.
+Use dataset to find several analyses in the data using SQL queries and Tableau visualizations that could monitor safety, and lessen crime rates.
 
   * **Analysis 1**: Do more months have more crimes than others? Can crime be seasonal?
     
@@ -54,7 +54,7 @@ For best use, pull up the SQL code found in this repo and split screen the docum
       
       - The data is cleaned and prepared for analysis
         
-### Analysis 1
+### Analysis 1:
      Do more months have more crimes than others? Can crime be seasonal?
       
      * The first CTE in the query  will output the total offenses in every month of the year
@@ -100,7 +100,109 @@ For best use, pull up the SQL code found in this repo and split screen the docum
             - Use 'order by' to order the months with the most crimes
 
 ### Analysis 3:
-              
+      How fast do on average, do people report offenses?
+
+        * Use a subquery to calculate the time it takes for each offense to be reported after it was committed. The parent query calculates the average time it takes for every offense to be reported
+
+        * Subquery
+        
+            - Use 'age' to return the time between the report date and offense date. Name this function as 'report_time' for the parent query
+
+        * Parent Query
+        
+            - Use 'avg' to find the average amount of time for a report to be made after an offense
+
+### Analysis 4:
+    On average, what offenses happen the most throughout the years?
+
+      * Use another subquery that counts up the crimes associated with the given offense. The parent query ranks the specific offense by the number of offenses it has each year
+
+      * Subquery
+      
+          - Use 'date_part' to part out the year out of 'offense_date'
+          - Use 'count(*)' to count up all crimes associated with a specific offense and year
+
+      * Parent Query
+      
+          - Use the 'rank()' window function to rank the most offenses in the given year. Partition the rank by 'year_num' and order the rank by 'offense_count' desc 
+
+      * Find out what 'All Other Larceny' means
+      
+          - Use select statement to find the records labeled offense of 'All Other Larceny'
+          
+          - Use 'iLike' function in 'where' clause to select all records with offense of 'All Other Larceny'. The 'iLike' function selects every record with the specific condition while ignoring case sensitivity, in case some records ignore case sensitivity.
+
+### Analysis 5:
+    The MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle. Since its establishment in 2015, has crime decreased in it's cities?
+
+    *  The first CTE will be used to sum up the number of offenses per year
+    
+    *  The second CTE is a statistical summary of the years before the     
+       MCPP was implemented (2008-2014)
+       
+    *  The third CTE is a statistical summary of the years after the MCPP 
+       was implemented (2015-2022)
+       
+    * Statistical summaries will compare average, min, and max crimes within the years before and after the MCPP was implemented
+          
+    * First CTE
+    
+        * Subquery
+        
+            - Use 'date_part' to part out the year value from offense date
+            
+            - Use 'count(*)' to count the offenses by offense type. Label this as 'offense_count'
+
+        * Parent Query
+
+            - Use 'sum' function to sum up 'offense_count' in the subquery. Group the sum by year number to get the total number of offenses for every year.
+
+    * Second CTE
+
+        - Use 'round(avg)', 'round(min)', and 'round(max)' to find the average amount of crimes per year, minimum amt. of crimes, and max number of crimes in all of the years before the MCPP was set in place
+        
+        - Use the 'where' clause to filter only the year numbers between '2008' and '2014' (the years before MCPP was implemented)
+
+    * Third CTE
+
+        - Use 'round(avg)', 'round(min)', and 'round(max)' to find the average amount of crimes per year, minimum amt. of crimes, and max number of crimes in all of the years after the MCPP was set in place. Round the numbers to the nearest 0.
+        
+        - Use the 'where' clause to filter only the year numbers between '2015' and '2022' (the years after MCPP was implemented)
+
+    * Statistical Summary
+
+        - Compare all 'before MCPP' KPIs against all 'after MCPP' KPIs to see if crime has lessened since it was set in place
+
+### Analysis 6
+    Which communities have the lowest crime rates, and are the safest? Which are the most dangerous?
+
+    * In the data, how many communities reside in the MCPP program?
+
+        - Use a 'count(distinct) function to count how many communities show up on the data, and use 'distinct' to eliminate duplicate values
+
+
+    *  The next query is almost identical to the 'offenses_per_year' CTE in analysis 5. However, I replaced 'offense' in the subquery to 'mcpp' to group crimes by the MCPP community. I also replaced 'sum' in the parent query with 'round((avg))' to find the average crimes per year in a community
+
+        * Subquery
+
+            - Use 'date_part' to part out year value of timestamp
+            
+            - Output the 'mcpp' column to list all MCPP communities
+            
+            - Use 'count(*)' to count up total offenses. Label this as 'offense_count'
+
+        * Parent Query
+
+            - Round the average offense count from the subquery to find how many crimes occurred, on average, in a certain community per year from 2008-2022.
+            
+            - Use 'order by' to order the average_offenses_per_year by either ascending or descending order to see which communities have the most crimes on average.
+
+            
+    
+
+        
+            
+            
 
 
 
