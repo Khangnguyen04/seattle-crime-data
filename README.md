@@ -72,7 +72,7 @@ For best use, pull up the SQL code found in this repo and split screen the docum
 ### Analysis 2:
      Historically, what years have the most crimes? Why might some years have more crimes than others?
 
-      * The query will take the year out of 'offense_date' to see the count of offenses associated with the specific year
+      * **The query will take the year out of 'offense_date' to see the count of offenses associated with the specific year**
         
             - Use 'date_part' to part year out of timestamp
             
