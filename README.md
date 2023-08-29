@@ -50,9 +50,9 @@ For best use, pull up the SQL code found in this repo and split screen the docum
       - The data is cleaned and prepared for analysis
         
 ### Analysis 1
-      - Do more months have more crimes than others? Can crime be seasonal?
+     Do more months have more crimes than others? Can crime be seasonal?
       
-          * The first CTE in the query  will output the total offenses in every month of the year
+     * The first CTE in the query  will output the total offenses in every month of the year
           
               - We use 'count(*)' to total up offenses of every month
               
@@ -63,22 +63,22 @@ For best use, pull up the SQL code found in this repo and split screen the docum
                     
               - Use 'where' to only use data from 2008-2022
               
-          * Now use a select statement to output the average crimes per month from 2008-2022
+      * Now use a select statement to output the average crimes per month from 2008-2022
           
               - Use 'round(avg))' to average the amount of crimes committed per month, and round to 0
               
               - Finally order the query by 'avg_offenses_per_month desc' to rank the months by most average offenses
 
 ### Analysis 2:
-      - Historically, what years have the most crimes? Why might some years have more crimes than others?
+     Historically, what years have the most crimes? Why might some years have more crimes than others?
 
-        * The query will take the year out of 'offense_date' to see the count of offenses associated with the specific year
+      * The query will take the year out of 'offense_date' to see the count of offenses associated with the specific year
         
             - Use 'date_part' to part year out of timestamp
             
             - Use 'count(*)' to count how many crimes are in each year
 
-        * The next query finds the months where crime spiked in 2020 (the year in the dataset with the most crimes)
+      * The next query finds the months where crime spiked in 2020 (the year in the dataset with the most crimes)
         
             - Create an index table for the database to search for offenses in 2020 quickly without sacrificing query speed and performance
             
