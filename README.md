@@ -177,7 +177,7 @@ For best use, pull up the SQL code found in this repo and split screen the docum
 
         - Compare all 'before MCPP' KPIs against all 'after MCPP' KPIs to see if crime has lessened since it was set in place
 
-### Analysis 6
+### Analysis 6:
     Which communities have the lowest crime rates, and are the safest? Which are the most dangerous?
 
     * In the data, how many communities reside in the MCPP program?
