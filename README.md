@@ -210,7 +210,11 @@ The following insights will be supported by various sources of data including vi
 
     On average, May has the most crimes per month, with 6176 crimes per month. August, July, and September follow after. This data supports the studies concluding a positive correlation between high temperatures and increased crime rates.
 
-    One study done by the National Bureau of Economic Research report analyzed violent crime patterns in 36 correctional facilities. The researchers discovered that days with high heat saw an increase of 18% in violence among inmates. [Source](https://www.nber.org/papers/w25961)
+    One study done by the National Bureau of Economic Research report analyzed violent crime patterns in 36 correctional facilities. The researchers discovered that days with high heat saw an increase of 18% in violence among inmates. 
+
+![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/d8d8c2d3-f995-482e-abdc-96cdf4d7e4a6)
+
+This bar chart displays the total offenses per month in 2023. The year 2023 may be an outlier in the data since crime actually drops around May and the beginning of June.
 
     
 
