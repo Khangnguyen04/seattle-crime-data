@@ -212,11 +212,35 @@ The following insights will be supported by various sources of data including vi
 
     One study done by the National Bureau of Economic Research report analyzed violent crime patterns in 36 correctional facilities. The researchers discovered that days with high heat saw an increase of 18% in violence among inmates. 
 
+[National Bureau of Economic Research report](https://www.nber.org/papers/w25961)
+
+
 ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/d8d8c2d3-f995-482e-abdc-96cdf4d7e4a6)
+
 
 This bar chart displays the total offenses per month in 2023. The year 2023 may be an outlier in the data since crime actually drops around May and the beginning of June.
 
+### Analysis 2 Results
     
+    Historically, what years have the most crimes? Why might some years have more crimes than others?
+
+    2020 has the most crimes. 2020, 2018, 2022, 2017, and 2021 are the top five years with the most crimes
+
+    * May reported the most offenses in 2020 with a staggering 11692 crimes. 
+        - On May 25th 2020, the death of George Floyd sparked major protests in the US. 
+    * March follows after with 6615 crimes
+        - March 11th 2020 marked the date Covid-19 was declared a pandemic
+
+
+  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/08d00892-e90c-4141-873c-99f61adc334d)
+
+  This bar chart compares the total offenses by year in the data. We see clearly that 2020 has a huge spike in crimes.
+
+  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/2dea7462-a7d3-4572-80b3-ab961752aaa7)
+
+  We see that burglary, destruction/damage of property, and motor vehicle theft all spike during 2020. A possible outcome    of the BLM protests.
+  
+  
 
 
 
