@@ -320,7 +320,7 @@ A solution to drop crime rates in the summer months could be to push community e
 
       These are the results from my SQL query for analysis 6:
 	    
-       Safest communities in MCPP:				The most dangerous communities in MCPP:
+                    Safest communities in MCPP:			       The most dangerous communities in MCPP:
 		    1. Commercial Harbor Island, 25 crimes/year        1. Downtown Commerical, 5583 crimes/year
 		    2. Commercial Duwamish, 47 crimes/year             2. Capitol Hill, 4160 crimes/year
 		    3. Pigeon Point, 85 crimes/year                    3. Northgate, 3877 crimes/year
@@ -335,12 +335,13 @@ A solution to drop crime rates in the summer months could be to push community e
 
    The Most Dangerous Communities
 
-   For the 'dangerous' communities, we can find out what hours of the day crime occurs the most for each community and        increase patrol during those hours. Simultaneously, we can lessen the amount of officers on duty during the hours where    crime does not spike.
+   For the 'dangerous' communities, we can find out what hours of the day crime occurs the most for each community and increase patrol during those hours. Simultaneously, 
+   we can lessen the amount of officers on duty during the hours where crime does not spike.
 
    ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/5f4b0293-71cb-4ccd-ac6b-0e7ef0a2d10b)
 
-   In the data, we see crime typically peaks around 5-6 AM, 8-9 AM, 10-11 AM and 12 PM, 4-5 PM, 7-9 PM, and midnight.
-   Knowing this information through the data, increased patrol can be placed during these times.
+   In the data, we see crime typically peaks around 5-6 AM, 8-9 AM, 10-11 AM and 12 PM, 1-2 PM, 4-5 PM, 7-9 PM, and midnight.
+   Knowing this information through the data, increased patrol can be placed during these times to ensure safety.
 
 
 
