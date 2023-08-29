@@ -206,6 +206,10 @@ These are the insights I found after extracting, manipulating, and analyzing the
 
 The following insights will be supported by various sources of data including visualizations, and facts from the internet.
 
+For best use, follow the URL to my Tableau visualizations to follow along with the result analyses.
+
+Dashboard URL: [Seattle Crime Overview](https://public.tableau.com/app/profile/khang.nguyen4719/viz/SeattleCrimeOverview/SeattleCrimeOverview?publish=yes)
+
 ### Analysis 1 Results
 
     Do more months have more crimes than others? Can crime be seasonal?
