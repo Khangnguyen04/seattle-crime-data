@@ -4,6 +4,8 @@
 
   Release Date: 2023-08-29
 
+  Updated on: 2023-08-30
+
   Author: https://www.linkedin.com/in/khang-nguyen1/
 
   Dashboard URL: [Seattle Crime Overview](https://public.tableau.com/app/profile/khang.nguyen4719/viz/SeattleCrimeOverview/SeattleCrimeOverview?publish=yes)
