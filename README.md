@@ -32,8 +32,7 @@ Use dataset to find several analyses in the data using SQL queries and Tableau v
     
   * **Analysis 4**: On average, what offenses happen the most throughout the years?
     
-  * **Analysis 5**: MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle. Since its establishment in 2015, has offenses 	 
-     reported increased in it's communities?
+  * **Analysis 5**: MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle. Since its establishment in 2015, have offenses reported increased in it's communities?
     
   * **Analysis 6**: Which communities have the lowest and highest crime rates? Does population density have a direct correlation with higher crime rates?
 
@@ -140,8 +139,7 @@ For best use, pull up the SQL code found in this repo and split screen the docum
           - Use 'iLike' function in 'where' clause to select all records with offense of 'All Other Larceny'. The 'iLike' function selects every record with the specific condition while ignoring case sensitivity, in case some records ignore case sensitivity.
 
 ### Analysis 5:
-    The MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle. Since its establishment in 2015, has offenses reported 
-    increased in the communities?
+    The MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle. Since its establishment in 2015, have offenses reported increased in the communities?
     
     *  The first CTE will be used to sum up the number of offenses per year
     
@@ -306,7 +304,7 @@ A solution to drop crime rates in the summer months could be to push community e
 
       Offenses reported have increased since the MCPP was implemented, despite only 8 years it has been in place. Avg. offenses per year, min offenses per year, and max offenses per year have all increased after the MCPP was implemented
       
-	    Based on this data, MCPP has been successful in reporting more crimes!
+      Based on this data, MCPP has been successful in reporting more crimes!
 
   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/4cb3fc56-e562-4ebd-bbb9-8118c85c4d55)
 
