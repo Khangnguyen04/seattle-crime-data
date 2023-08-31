@@ -307,13 +307,13 @@ This table shows the top five offense types with most reports and the percent di
 
 * You can also identify time patterns to see when these crimes frequently occur in these areas to increase patrol.
 
-  ### Analysis 5 Results
+### Analysis 5 Results
 
       MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle and promotes a safer community for each one included. Since its establishment in 2015, have offenses reported increased since its implementation?
 
       Offenses reported have increased since the MCPP was implemented, despite only 8 years it has been in place. Avg. offenses per year, min offenses per year, and max offenses per year have all increased after the MCPP was implemented
       
-      Based on this data, MCPP has been successful in reporting more crimes!
+      Based on this data, MCPP has either been successful in reporting more crimes, or crime rates have actually increased in Seattle.
 
   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/7ab1e98d-29c3-4765-825b-9a96e4f554e9)
 
@@ -322,9 +322,12 @@ This table shows the top five offense types with most reports and the percent di
 
   This bar chart compares the trends in offense types before (2008-2014) and after (2015-present) the MCPP was implemented in 2015
 
-  * If we continuously see more and more offenses reported every year, the MCPP seems to be doing well in reporting crime, or more offenses are taking place each year
+  * If we continuously see more and more offenses reported every year, either the MCPP seems to be doing well in reporting crime, or more offenses are taking place each 
+    year and enforcement has stayed the same
 
-  ## Analysis 6 Results
+  * We will investigate further
+
+## Analysis 6 Results
 
       Which communities have the lowest and highest crime rates? Does population density have a direct correlation with higher crime rates?
 
