@@ -363,7 +363,7 @@ This table shows the top five offense types with most reports and the percent di
    * The top five communities with lowest crime rates typically have populations 10000 
    and below, while higher crime rate communities have more than 29000.
 
-   * After knowing this data, we can allocate more resources to communities with higher populations since we know most crime is situated there. We can target the hours in which crime spikes in these communities and increase patrol around those times. 
+   * After knowing this data, we can allocate more resources to communities with higher populations since we hypothesized that most crime is situated there. We can target the hours in which crime spikes in these communities and increase patrol around those times. 
 
    ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/5f4b0293-71cb-4ccd-ac6b-0e7ef0a2d10b)
 
