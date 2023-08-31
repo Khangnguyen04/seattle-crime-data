@@ -332,7 +332,18 @@ A solution to drop crime rates in the summer months could be to push community e
 		4. Queen Anne, 3473 crimes/year, 36000 people
 		5. Slu/Cascade, 3021 crimes/year, 29376 people
 		
+   Communities with low crime rates
 
+   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/5bfeb709-a77f-4495-8c37-7ee07e63bfb0)
+
+
+   Communities with high crime rates
+
+   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/c9847531-1163-4f54-bf60-720dd114cc9e)
+   
+
+   Correlation between population size and crime rates
+   
    ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/2188c911-bbc0-46ea-a5cf-531c72e5168c)
 
    We can conlude that higher crime rates in a community does not necessarily correlate to how dense the population is in that community. Factors such as community wealth, 
