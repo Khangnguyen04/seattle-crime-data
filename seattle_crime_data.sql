@@ -7,10 +7,10 @@
 -- Use update functions to update dates without timezones
 
 update sdp_crime_data
-    set offense_date = offense_date at time zone 'America/Los_Angeles' -- add the timezone PDT
+    set offense_date = offense_date at time zone 'America/Los_Angeles' -- add the Pacific Daylight Time timezone 
 
 update sdp_crime_data
-    set report_date = report_date at time zone 'America/Los_Angeles' -- add the timezone PDT
+    set report_date = report_date at time zone 'America/Los_Angeles' -- add the Pacific Daylight Time timezone 
 
 -- Select statement to see if the updates worked
 	
