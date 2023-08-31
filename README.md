@@ -306,7 +306,8 @@ A solution to drop crime rates in the summer months could be to push community e
       
       Based on this data, MCPP has been successful in reporting more crimes!
 
-  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/4cb3fc56-e562-4ebd-bbb9-8118c85c4d55)
+  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/6f0fd39c-6386-4291-8833-63a2912e65fc)
+
 
   Bar chart of offense types before and after the MCPP was implemented in Seattle
 
