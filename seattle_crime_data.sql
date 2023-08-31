@@ -318,7 +318,8 @@ from
 	
 /*
     Analysis 6:
-    Which communities have the lowest crime rates, and are the safest?
+    Which communities have the lowest and highest crime rates?
+    - Does population density have a direct correlation with higher crime rates?
 */ 
 
 -- Use select to see how many communities reside in the MCPP program
@@ -330,48 +331,60 @@ from
 
 -- A total of 60 communities are included
 
+-- The first CTE will calculate the total offenses in each community
+
+with mcpp_offenses_per_year as (
+	select
+	    date_part('year', offense_date) as year_num -- part out year value of timestamp
+	  , s.mcpp
+	  , count(*) as offense_count -- count up total offenses
+	from
+	    sdp_crime_data s
+	where	
+	    date_part('year', offense_date) between 2008 and 2022 -- select values between 2008-2022
+	group by
+	    year_num
+	  , s.mcpp
+)
+
 /*
-    The next query is almost identical to the 'offenses_per_year' CTE in analysis 5
-    However, I replaced 'offence' in the subquery to 'mcpp' to group crimes by the mcpp community
-    I also replaced 'sum' in the parent query with 'round((avg))' to find the avg crimes per year in a community
-*/ 
+	This query will average the total offenses per community from every year,
+	and join the mcpp_population table I created to add the population of each
+	community after its average offenses per year
+*/
 
 select
-    mcpp
-  , round(avg(offense_count),0) as avg_offenses_per_year 
-    -- find on average how many crimes occurred in a certain community per year from 2008-2022
+    o.mcpp
+  , round(avg(o.offense_count),2) as avg_offenses_by_year
+  , p.mcpp_pop as pop_size
+    -- find on average how many crimes occure in a certain community per year from 2008-2022
 from
-	(
-		select
-		    date_part('year', offense_date) as year_num -- part out year value of timestamp
-		  , s.mcpp -- list out MCPP communities
-		  , count(*) as offense_count -- count up total offenses
-		from
-		    sdp_crime_data s
-		group by
-		    year_num
-		  , s.mcpp -- group offenses by MCPP community
-	) as mcpp_offenses_per_year
+    mcpp_offenses_per_year o
+	join mcpp_populations p -- join the population table to pull populations of each community
+		on o.mcpp = p.mcpp -- use aliases to join the tables
 group by 
-    mcpp
+    o.mcpp
+  , p.mcpp_pop
 order by
-    avg_offenses_per_year asc -- order by ascending to see the safest communities, descending to see the most dangerous
-
+    avg_offenses_by_year desc -- order by communities with least/most crimes per year using asc and desc
+	
 /*
     Analysis 6 Results:
-    Safest communities in MCPP:
-	1. Commercial Harbor Island, 25 crimes/year 
-	2. Commercial Duwamish, 47 crimes/year
-	3. Pigeon Point, 85 crimes/year
-	4. Eeastlake - East, 106 crimes/year
-	5. Genesee, 209 crimes/year
-
-    The most dangerous communities in MCPP:
-	1. Downtown Commerical, 5583 crimes/year
-	2. Capitol Hill, 4160 crimes/year
-	3. Northgate, 3877 crimes/year
-	4. Queen Anne, 3473 crimes/year
-	5. Slu/Cascade, 3021 crimes/year
+    Communties with least crime rates and population:						
+	1. Commercial Harbor Island, 25 crimes/year, 10000 people
+	2. Commercial Duwamish, 47 crimes/year, 1376 people
+	3. Pigeon Point, 85 crimes/year, 6000 people
+	4. Eeastlake - East, 106 crimes/year, 8500 people
+	5. Genesee, 209 crimes/year, 3000
+		
+    Communties with most crime rates and population:
+	1. Downtown Commerical, 5583 crimes/year, 99000
+	2. Capitol Hill, 4160 crimes/year, 31205 people
+	3. Northgate, 3877 crimes/year, 46593 people
+	4. Queen Anne, 3473 crimes/year, 36000 people
+	5. Slu/Cascade, 3021 crimes/year, 29376 people
+		
+    We can conclude that population density has a direct correlation with higher crime rates
 */
 
 
