@@ -177,7 +177,7 @@ For best use, pull up the SQL code found in this repo and split screen the docum
 
     * Statistical Summary
 
-        - Compare all 'before MCPP' KPIs against all 'after MCPP' KPIs to see if crime has lessened since it was set in place
+        - Compare all 'before MCPP' KPIs against all 'after MCPP' KPIs to see if offenses reported have increased after its implementation
 
 ### Analysis 6:
     Which communities have the lowest crime rates and highest crime rates? Does population density correlate with crime rates?
