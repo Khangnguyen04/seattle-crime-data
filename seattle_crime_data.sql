@@ -384,7 +384,8 @@ order by
 	4. Queen Anne, 3473 crimes/year, 36000 people
 	5. Slu/Cascade, 3021 crimes/year, 29376 people
 		
-    We can conclude that population density has a direct correlation with higher crime rates
+    We can conclude that population density has a direct correlation with higher crime rates in the query,
+    we will analyze further in Tableau.
 */
 
 
