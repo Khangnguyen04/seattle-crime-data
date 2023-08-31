@@ -327,7 +327,7 @@ This table shows the top five offense types with most reports and the percent di
 
   * We will investigate further
 
-## Analysis 6 Results
+### Analysis 6 Results
 
       Which communities have the lowest and highest crime rates? Does population density have a direct correlation with higher crime rates?
 
