@@ -348,16 +348,16 @@ with mcpp_offenses_per_year as (
 )
 
 /*
-	This query will average the total offenses per community from every year,
-	and join the mcpp_population table I created to add the population of each
-	community after its average offenses per year
+    This query will average the total offenses per community from every year,
+    and join the mcpp_population table I created to add the population of each
+    community after its average offenses per year
 */
 
 select
     o.mcpp
-  , round(avg(o.offense_count),2) as avg_offenses_by_year
-  , p.mcpp_pop as pop_size
-    -- find on average how many crimes occure in a certain community per year from 2008-2022
+  , round(avg(o.offense_count),2) as avg_offenses_by_year -- find average offenses per year in each community
+  , p.mcpp_pop as pop_size -- show population size of each community
+    -- find on average how many crimes occur in a certain community per year from 2008-2022
 from
     mcpp_offenses_per_year o
 	join mcpp_populations p -- join the population table to pull populations of each community
