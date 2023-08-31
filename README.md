@@ -295,25 +295,17 @@ A solution to drop crime rates in the summer months could be to push community e
 
       MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle and promotes a safer community for each one included. Since its establishment in 2015, has crime decreased in its communities?
 
-      Offenses have increased since the MCPP was implemented, despite only 8 years it has been in place. Avg. offenses per year, min offenses per year, and max offenses per year have all increased after the MCPP was implemented
+      Offenses reported have increased since the MCPP was implemented, despite only 8 years it has been in place. Avg. offenses per year, min offenses per year, and max offenses per year have all increased after the MCPP was implemented
       
-	    Based on this data, MCPP has had little impact on crime rates in Seattle
+	    Based on this data, MCPP has been successful in reporting more crimes!
 
-  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/a5c8ce54-5f95-4878-995c-a64ce6cddc01)
+  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/4cb3fc56-e562-4ebd-bbb9-8118c85c4d55)
 
-  Before MCPP was implemented
-
-  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/48a73ea7-1cb9-4b92-9ed4-33910e3a94f8)
-
-  After MCPP was implemented
+  Bar chart of offense types before and after the MCPP was implemented in Seattle
 
   These bar charts compare the trends in offense types before and after the MCPP was implemented in 2015
 
-  If we continuously see an upward trend in crime every year, one solution may be to raise awareness about crime 
-  prevention strategies, safety tips, and community resources for the public to prioritize collaboration
-
-  Another solution could be to invest in technology such as surveillance cameras, gunshot detection systems, and crime 
-  analysis software to enhance your crime-fighting capabilities.
+  If we continuously see an upward trend in offenses reported every year, the MCPP seems to be doing well in acknowledging crime
 
   ## Analysis 6 Results
 
