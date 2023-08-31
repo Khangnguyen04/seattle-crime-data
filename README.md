@@ -355,6 +355,8 @@ A solution to drop crime rates in the summer months could be to push community e
 
    ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/5f4b0293-71cb-4ccd-ac6b-0e7ef0a2d10b)
 
+   Scatterplot with trend line showing correlation between population size and total offenses
+
    In the data, we see crime typically peaks around 5-6 AM, 8-9 AM, 10-11 AM and 12 PM, 1-2 PM, 4-5 PM, 7-9 PM, and midnight.
    Knowing this information through the data, increased patrol can be placed during these times to ensure safety.
 
