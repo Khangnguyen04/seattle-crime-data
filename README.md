@@ -30,7 +30,8 @@ Use dataset to find several analyses in the data using SQL queries and Tableau v
     
   * **Analysis 4**: On average, what offenses happen the most throughout the years?
     
-  * **Analysis 5**: MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle. Since its establishment in 2015, has crime decreased in it's cities?
+  * **Analysis 5**: MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle. Since its establishment in 2015, has offenses 	 
+     reported increased in it's communities?
     
   * **Analysis 6**: Which communities have the lowest and highest crime rates? Does population density have a direct correlation with higher crime rates?
 
@@ -137,8 +138,9 @@ For best use, pull up the SQL code found in this repo and split screen the docum
           - Use 'iLike' function in 'where' clause to select all records with offense of 'All Other Larceny'. The 'iLike' function selects every record with the specific condition while ignoring case sensitivity, in case some records ignore case sensitivity.
 
 ### Analysis 5:
-    The MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle. Since its establishment in 2015, has crime decreased in it's cities?
-
+    The MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle. Since its establishment in 2015, has offenses reported 
+    increased in the communities?
+    
     *  The first CTE will be used to sum up the number of offenses per year
     
     *  The second CTE is a statistical summary of the years before the     
@@ -178,7 +180,7 @@ For best use, pull up the SQL code found in this repo and split screen the docum
         - Compare all 'before MCPP' KPIs against all 'after MCPP' KPIs to see if crime has lessened since it was set in place
 
 ### Analysis 6:
-    Which communities have the lowest crime rates, and are the safest? Which are the most dangerous?
+    Which communities have the lowest crime rates and highest crime rates? Does population density correlate with crime rates?
 
     * In the data, how many communities reside in the MCPP program?
 
@@ -298,7 +300,7 @@ A solution to drop crime rates in the summer months could be to push community e
 
   ### Analysis 5 Results
 
-      MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle and promotes a safer community for each one included. Since its establishment in 2015, has crime decreased in its communities?
+      MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle and promotes a safer community for each one included. Since its establishment in 2015, have offenses reported increased since its implementation?
 
       Offenses reported have increased since the MCPP was implemented, despite only 8 years it has been in place. Avg. offenses per year, min offenses per year, and max offenses per year have all increased after the MCPP was implemented
       
@@ -308,7 +310,7 @@ A solution to drop crime rates in the summer months could be to push community e
 
   Bar chart of offense types before and after the MCPP was implemented in Seattle
 
-  These bar charts compare the trends in offense types before and after the MCPP was implemented in 2015
+  This bar chart compares the trends in offense types before (2008-2014) and after (2015-present) the MCPP was implemented in 2015
 
   If we continuously see an upward trend in offenses reported every year, the MCPP seems to be doing well in acknowledging crime
 
@@ -334,7 +336,7 @@ A solution to drop crime rates in the summer months could be to push community e
    ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/2188c911-bbc0-46ea-a5cf-531c72e5168c)
 
    We can conlude that higher crime rates in a community does not necessarily correlate to how dense the population is in that community. Factors such as community wealth, 
-   poverty rates, and ethnic backgrounds could all play a factor into high crime rates. The top five communities with lowest crime rates typically have populations 10000 
+   poverty, and ethnic backgrounds could all play a factor into high crime rates. The top five communities with lowest crime rates typically have populations 10000 
    and below, while higher crime rate communities have more than 29000.
 
    After knowing this data, we can allocate more resources to communities with higher populations since we know most crime is situated there. We can target the hours in 
