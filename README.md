@@ -32,7 +32,7 @@ Use dataset to find several analyses in the data using SQL queries and Tableau v
     
   * **Analysis 5**: MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle. Since its establishment in 2015, has crime decreased in it's cities?
     
-  * **Analysis 6**: Which communities have the lowest crime rates, and are the safest? Which are the most dangerous?
+  * **Analysis 6**: Which communities have the lowest and highest crime rates? Does population density have a direct correlation with higher crime rates?
 
 We will then visualize the data in Tableau for a potential police chief, deputy chief, or shift supervisor to analyze and have oversight on what decisions to make to lessen crime rates.
 
@@ -185,9 +185,9 @@ For best use, pull up the SQL code found in this repo and split screen the docum
         - Use a 'count(distinct) function to count how many communities show up on the data, and use 'distinct' to eliminate duplicate values
 
 
-    *  The next query is almost identical to the 'offenses_per_year' CTE in analysis 5. However, I replaced 'offense' in the subquery to 'mcpp' to group crimes by the MCPP community. I also replaced 'sum' in the parent query with 'round((avg))' to find the average crimes per year in a community
+    *  The next query is almost identical to the 'offenses_per_year' CTE in analysis 5. However, I replaced 'offense' in the CTE to 'mcpp' to group crimes by the MCPP community. I also replaced 'sum' in the query after it with 'round((avg))' to find the average crimes per year in a community, and finally I join the 'mcpp_population' table to the 'sdp_crime_data' table in order to pull population sizes in each community to see if higher populations correlate with crime rates.
 
-        * Subquery
+        * CTE
 
             - Use 'date_part' to part out year value of timestamp
             
@@ -195,11 +195,16 @@ For best use, pull up the SQL code found in this repo and split screen the docum
             
             - Use 'count(*)' to count up total offenses. Label this as 'offense_count'
 
-        * Parent Query
+        * Query
 
             - Round the average offense count from the subquery to find how many crimes occurred, on average, in a certain community per year from 2008-2022.
             
             - Use 'order by' to order the average_offenses_per_year by either ascending or descending order to see which communities have the most crimes on average.
+
+     	    - Display the population side from the other table and give another alias of 'pop_size' 
+
+     	    - Use an inner join to join 'mcpp_population' table to 'sdp_crime_data' table in order to show the population of each community along side it's average crimes.
+	      
 
 
 ## Result
@@ -309,32 +314,35 @@ A solution to drop crime rates in the summer months could be to push community e
 
   ## Analysis 6 Results
 
-      Which communities have the lowest crime rates, and are the safest? Which are the most dangerous?
+      Which communities have the lowest and highest crime rates? Does population density have a direct correlation with higher crime rates?
 
-      These are the results from my SQL query for analysis 6:
-	    
-                    Safest communities in MCPP:			       The most dangerous communities in MCPP:
-		    1. Commercial Harbor Island, 25 crimes/year        1. Downtown Commerical, 5583 crimes/year
-		    2. Commercial Duwamish, 47 crimes/year             2. Capitol Hill, 4160 crimes/year
-		    3. Pigeon Point, 85 crimes/year                    3. Northgate, 3877 crimes/year
-		    4. Eeastlake - East, 106 crimes/year               4. Queen Anne, 3473 crimes/year
-		    5. Genesee, 209 crimes/year                        5. Slu/Cascade, 3021 crimes/year
+      Communities with least crime rates and population:						
+		1. Commercial Harbor Island, 25 crimes/year, 10000 people
+		2. Commercial Duwamish, 47 crimes/year, 1376 people
+		3. Pigeon Point, 85 crimes/year, 6000 people
+		4. Eeastlake - East, 106 crimes/year, 8500 people
+		5. Genesee, 209 crimes/year, 3000
 		
-   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/059070a6-c867-4ed2-bdf2-aef534b87ff4)
+	Communities with most crime rates and population:
+		1. Downtown Commerical, 5583 crimes/year, 99000
+		2. Capitol Hill, 4160 crimes/year, 31205 people
+		3. Northgate, 3877 crimes/year, 46593 people
+		4. Queen Anne, 3473 crimes/year, 36000 people
+		5. Slu/Cascade, 3021 crimes/year, 29376 people
+		
 
-   The Safest Communities 
+   We can conlude that higher crime rates in a community correlate to how dense the population is in that community. The top five communities with lowest crime rates 	 
+   typically have populations 10000 and below, while higher crime rate communities have more than 29000.
 
-   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/420c9d38-2d82-4385-a4d4-b25e54a05125)
-
-   The Most Dangerous Communities
-
-   For the 'dangerous' communities, we can find out what hours of the day crime occurs the most for each community and increase patrol during those hours. Simultaneously, 
-   we can lessen the amount of officers on duty during the hours where crime does not spike.
+   After knowing this data, we can allocate more resources to communities with higher populations since we know most crime is situated there. We can target the hours in 
+   which crime spikes in these communities and increase patrol around those times. 
 
    ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/5f4b0293-71cb-4ccd-ac6b-0e7ef0a2d10b)
 
    In the data, we see crime typically peaks around 5-6 AM, 8-9 AM, 10-11 AM and 12 PM, 1-2 PM, 4-5 PM, 7-9 PM, and midnight.
    Knowing this information through the data, increased patrol can be placed during these times to ensure safety.
+
+   For the population table, I web-scraped the internet for the population size of each community which can be accessed in a seperate file in this repo.
 
 
 
