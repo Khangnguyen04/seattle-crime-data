@@ -322,7 +322,7 @@ This table shows the top five offense types with most reports and the percent di
 
   This bar chart compares the trends in offense types before (2008-2014) and after (2015-present) the MCPP was implemented in 2015
 
-  * If we continuously see more and more offenses reported every year, the MCPP seems to be doing well in acknowledging crime
+  * If we continuously see more and more offenses reported every year, the MCPP seems to be doing well in reporting crime, or more offenses are taking place each year
 
   ## Analysis 6 Results
 
