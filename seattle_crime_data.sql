@@ -313,7 +313,7 @@ from
     - Offenses have increased since the MCPP was implemented, despite the 8 years it has been in place
     - Avg. offenses per year, min offenses per year, and max offenses per year have all increased
 	after the MCPP was implemented
-    - Based on this data, the MCPP program has had little impact on crime rates in Seattle
+    - Based on this data, the MCPP program has had a major impact on offenses reported after its implementation!
 */
 	
 /*
