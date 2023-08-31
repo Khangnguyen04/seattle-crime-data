@@ -302,10 +302,10 @@ This table shows the top five offense types with most reports and the percent di
 
 * You can see that larceny and theft have still occurred the most even in recent years, and following after are assault offenses. This data is taken before and after the MCPP was implemented.
 
-  * As an analyst for a police department aiming to reduce larceny and theft crimes, you can identify geographical hotspots 
+* As an analyst for a police department aiming to reduce larceny and theft crimes, you can identify geographical hotspots 
   where they occur to focus resources on these high-crime areas
 
-  * You can also identify time patterns to see when these crimes frequently occur in these areas to increase patrol.
+* You can also identify time patterns to see when these crimes frequently occur in these areas to increase patrol.
 
   ### Analysis 5 Results
 
