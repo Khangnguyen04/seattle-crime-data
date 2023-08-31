@@ -235,9 +235,9 @@ Dashboard URL: [Seattle Crime Overview](https://public.tableau.com/app/profile/k
 
 This bar chart displays the total offenses per month in 2023 (found in Seattle Offenses Summary dashboard).
 
-The year 2023 may be an outlier in the data since crime actually drops around May and the beginning of June.
+* The year 2023 may be an outlier in the data since crime actually drops around May and the beginning of June.
 
-A solution to drop crime rates in the summer months could be to push community engagement through festivals, gatherings, etc. where the gatherings can increase the visibility of police, which can deter criminal activity
+* A solution to drop crime rates in the summer months could be to push community engagement through festivals, gatherings, etc. where the gatherings can increase the visibility of police, which can deter criminal activity
 
 ### Analysis 2 Results
     
@@ -254,7 +254,7 @@ A solution to drop crime rates in the summer months could be to push community e
   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/08d00892-e90c-4141-873c-99f61adc334d)
 
 
-  This bar chart compares the total offenses by year in the data. We see clearly that 2020 has a huge spike in crimes
+  * This bar chart compares the total offenses by year in the data. We see clearly that 2020 has a huge spike in crimes
   (found in Seattle Offenses Summary dashboard).
   
   
@@ -263,14 +263,14 @@ A solution to drop crime rates in the summer months could be to push community e
 
   (found in Offenses Before/After MCPP dashboard)
 
-  We see that burglary, destruction/damage of property, and motor vehicle theft all spike during 2020. A possible outcome    of the BLM protests and Covid-19.
+  * We see that burglary, destruction/damage of property, and motor vehicle theft all spike during 2020. A possible outcome    of the BLM protests and Covid-19.
   
 
   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/7ae94a1d-a66f-4ccc-97c8-6fc9cedc0d9f)
 
-(found in Offenses Before/After MCPP Summary)
+(found in Seattle Offenses Summary dashboard)
   
-  A dramatic 8.30% increase in crime can be seen from 2019 to 2020 further proving the case.
+  * A dramatic 8.30% increase in crime can be seen from 2019 to 2020 further proving the case.
 
   ### Analysis 3 Results
 
@@ -287,7 +287,7 @@ A solution to drop crime rates in the summer months could be to push community e
 
    The SQL code and output for the average time to make a report
 
-   One solution for making the report time faster could be a mobile app that allows citizens to report crimes quickly 
+   * One solution for making the report time faster could be a mobile app that allows citizens to report crimes quickly 
    from their phones. You could also launch campaigns to educate the public reporting crimes ASAP.
 
   ### Analysis 4 Results
@@ -300,12 +300,12 @@ A solution to drop crime rates in the summer months could be to push community e
 
 This table shows the top five offense types with most reports and the percent difference from the previous year (found in Offenses Before/After MCPP dashboard).
 
-You can see that larceny and theft have still occurred the most even in recent years, and following after are assault offenses. This data is taken before and after the MCPP was implemented.
+* You can see that larceny and theft have still occurred the most even in recent years, and following after are assault offenses. This data is taken before and after the MCPP was implemented.
 
-  As an analyst for a police department aiming to reduce larceny and theft crimes, you can identify geographical hotspots 
+  * As an analyst for a police department aiming to reduce larceny and theft crimes, you can identify geographical hotspots 
   where they occur to focus resources on these high-crime areas
 
-  You can also identify time patterns to see when these crimes frequently occur in these areas to increase patrol.
+  * You can also identify time patterns to see when these crimes frequently occur in these areas to increase patrol.
 
   ### Analysis 5 Results
 
@@ -322,7 +322,7 @@ You can see that larceny and theft have still occurred the most even in recent y
 
   This bar chart compares the trends in offense types before (2008-2014) and after (2015-present) the MCPP was implemented in 2015
 
-  If we continuously see more and more offenses reported every year, the MCPP seems to be doing well in acknowledging crime
+  * If we continuously see more and more offenses reported every year, the MCPP seems to be doing well in acknowledging crime
 
   ## Analysis 6 Results
 
@@ -335,7 +335,7 @@ You can see that larceny and theft have still occurred the most even in recent y
 		4. Eeastlake - East, 106 crimes/year, 8500 people
 		5. Genesee, 209 crimes/year, 3000 people
 		
-	Communities with most crime rates and population:
+      Communities with most crime rates and population:
 		1. Downtown Commerical, 5583 crimes/year, 99000 people
 		2. Capitol Hill, 4160 crimes/year, 31205 people
 		3. Northgate, 3877 crimes/year, 46593 people
@@ -358,21 +358,21 @@ You can see that larceny and theft have still occurred the most even in recent y
 
    (All of these visualizations can be found in MCPP Community Summary Dashboard)
 
-   We can conlude that higher crime rates in a community may correlate to how dense the population is in that community, however other factors such as community wealth, 
-   poverty, and ethnic backgrounds could play a factor into high crime rates as well. The top five communities with lowest crime rates typically have populations 10000 
+   * We can conlude that higher crime rates in a community may correlate to how dense the population is in that community, however other factors such as community wealth, poverty, and ethnic backgrounds could play a factor into high crime rates as well.
+     
+   * The top five communities with lowest crime rates typically have populations 10000 
    and below, while higher crime rate communities have more than 29000.
 
-   After knowing this data, we can allocate more resources to communities with higher populations since we know most crime is situated there. We can target the hours in 
-   which crime spikes in these communities and increase patrol around those times. 
+   * After knowing this data, we can allocate more resources to communities with higher populations since we know most crime is situated there. We can target the hours in which crime spikes in these communities and increase patrol around those times. 
 
    ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/5f4b0293-71cb-4ccd-ac6b-0e7ef0a2d10b)
 
    (Found in Seattle Offenses Summary dashboard)
    
-   In the barchart, we see crime typically peaks around 5-6 AM, 8-9 AM, 10-11 AM and 12 PM, 1-2 PM, 4-5 PM, 7-9 PM, and midnight.
+   * In the barchart, we see crime typically peaks around 5-6 AM, 8-9 AM, 10-11 AM and 12 PM, 1-2 PM, 4-5 PM, 7-9 PM, and midnight.
    Knowing this information through the data, increased patrol can be placed during these times to ensure safety.
 
-   For the population table, I web-scraped the internet for the population size of each community which can be accessed in a seperate file in this repo.
+   * For the population table, I web-scraped the internet for the population size of each community which can be accessed in a seperate file in this repo.
 
 
 
