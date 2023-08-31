@@ -53,7 +53,7 @@ For best use, pull up the SQL code found in this repo and split screen the docum
       
       - I removed columns group_a_b, offense_code, sector, and beat since I will not be used these columns within my analysis.
       
-      - Deleted all records from 1908-2007 since these records are inaccurate and do not add value to the timely data from 2008-2022. 2023 will not be used in these queries since we still have four months until the end of the year.
+      - Deleted all records from 1908-2007 since these records are inaccurate and do not add value to the timely data from 2008-2022. 2023 will not be used in most of these queries since we still have four months until the end of the year.
       
       - The data is cleaned and prepared for analysis
         
