@@ -289,9 +289,10 @@ A solution to drop crime rates in the summer months could be to push community e
 
       From 2008-2022, larceny and theft occur the most. Aggravated assault follows right after in the data.
 
-  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/398744f6-1bc2-4c4e-87dc-344397a79736)
+  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/55d576cd-6ca1-4f1f-b706-f482c7153420)
 
-  In the recent years, larceny and theft have still occurred the most, following are still assault offenses.
+
+  In all of the data, larceny and theft have occurred the most, following are still assault offenses. This data is taken before and after the MCPP was implemented.
 
   As an analyst for a police department aiming to reduce larceny and theft crimes, you can identify geographical hotspots 
   where they occur to focus resources on these high-crime areas
@@ -313,7 +314,7 @@ A solution to drop crime rates in the summer months could be to push community e
 
   This bar chart compares the trends in offense types before (2008-2014) and after (2015-present) the MCPP was implemented in 2015
 
-  If we continuously see an upward trend in offenses reported every year, the MCPP seems to be doing well in acknowledging crime
+  If we continuously see more and more offenses reported every year, the MCPP seems to be doing well in acknowledging crime
 
   ## Analysis 6 Results
 
