@@ -238,7 +238,7 @@ where
 /*
     Analysis 5: 
     - The MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle.
-    - Since its establishment in 2015, has crime decreased in its cities?
+    - Since its establishment in 2015, have offenses reported increased since then?
 */
 
 /*
