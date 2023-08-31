@@ -331,8 +331,11 @@ A solution to drop crime rates in the summer months could be to push community e
 		5. Slu/Cascade, 3021 crimes/year, 29376 people
 		
 
-   We can conlude that higher crime rates in a community correlate to how dense the population is in that community. The top five communities with lowest crime rates 	 
-   typically have populations 10000 and below, while higher crime rate communities have more than 29000.
+   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/2188c911-bbc0-46ea-a5cf-531c72e5168c)
+
+   We can conlude that higher crime rates in a community does not necessarily correlate to how dense the population is in that community. Factors such as community wealth, 
+   poverty rates, and ethnic backgrounds could all play a factor into high crime rates. The top five communities with lowest crime rates typically have populations 10000 
+   and below, while higher crime rate communities have more than 29000.
 
    After knowing this data, we can allocate more resources to communities with higher populations since we know most crime is situated there. We can target the hours in 
    which crime spikes in these communities and increase patrol around those times. 
