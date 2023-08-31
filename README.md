@@ -321,10 +321,10 @@ A solution to drop crime rates in the summer months could be to push community e
 		2. Commercial Duwamish, 47 crimes/year, 1376 people
 		3. Pigeon Point, 85 crimes/year, 6000 people
 		4. Eeastlake - East, 106 crimes/year, 8500 people
-		5. Genesee, 209 crimes/year, 3000
+		5. Genesee, 209 crimes/year, 3000 people
 		
 	Communities with most crime rates and population:
-		1. Downtown Commerical, 5583 crimes/year, 99000
+		1. Downtown Commerical, 5583 crimes/year, 99000 people
 		2. Capitol Hill, 4160 crimes/year, 31205 people
 		3. Northgate, 3877 crimes/year, 46593 people
 		4. Queen Anne, 3473 crimes/year, 36000 people
