@@ -4,7 +4,7 @@
 
   Release Date: 2023-08-29
 
-  Updated on: 2023-08-30
+  Updated on: 2023-09-01
 
   Author: https://www.linkedin.com/in/khang-nguyen1/
 
@@ -178,7 +178,46 @@ For best use, pull up the SQL code found in this repo and split screen the docum
     * Statistical Summary
 
         - Compare all 'before MCPP' KPIs against all 'after MCPP' KPIs to see if offenses reported have increased after its implementation
+	
+### Analysis 5 Continued:
+	Implement wa_police_employee_count table into the queries so we can see if enforcement in Seattle has increased or decreased
+	then relate the results to crimes after the MCPP was implemented.
 
+    * Use 'delete from' to remove all records not using the 'Seattle Police Department' agency
+
+    * Add one 'agency' column into 'sdp_crime_data' to denote that
+    every record in that table is from the Seattle Police Department
+
+    * Add one agency_id column to create a key we can join back to 
+    the 'wa_police_employee_count' table
+
+    * First CTE
+
+     	- Display the total employees in the Seattle Police Department
+      	  per year from 2008-2022
+
+    * Second CTE
+
+    	- Display the total offenses per year
+
+     	- Use 'date_part' to part out the year from 'offense_date
+
+        - Use count(*) to count the offenses per year
+
+ 	- Use 'where' to filter records between 2008 and 2022
+  	  to match the data between both tables
+
+    * Select query
+
+     	- Select the year_num, total_fulltime_employees, and total_offenses
+      	  columns
+
+  	- Use a calculation to determine how many employees are in service
+   	  per 1000 offenses per year
+
+      	- Join the two CTEs together and match the year columns together
+       	  to get the records to match to their corresponding year
+       
 ### Analysis 6:
     Which communities have the lowest crime rates and highest crime rates? Does population density correlate with crime rates?
 
@@ -322,10 +361,15 @@ This table shows the top five offense types with most reports and the percent di
 
   This bar chart compares the trends in offense types before (2008-2014) and after (2015-present) the MCPP was implemented in 2015
 
-  * If we continuously see more and more offenses reported every year, either the MCPP seems to be doing well in reporting crime, or more offenses are taking place each 
-    year and enforcement has stayed the same
+  * If we continuously see more and more offenses reported every year, either the MCPP seems to be doing well in reporting crime, or more offenses are taking place each year and enforcement has stayed the same
 
-  * We will investigate further
+### Analysis 5 Results Continued:
+
+  	 To determine whether or not enforcement has increased, or crime rate increased, I included a dataset from waspc.org that includes the full time law enforcement count of ever police department in Washington from 1980-2022. For the relevance of this project, I narrowed the data down to records that are only from the Seattle Police Department, and are between 2008 and 2022.
+
+    	After running this query, we can see that from 2008-2022 crime continously rises in Seattle, while simultaneously employees per 1000 offenses continues to drop. In 2022 alone 74000 offenses were reported, while only 19 employees per 1000 crimes were employed. 
+
+
 
 ### Analysis 6 Results
 
