@@ -310,10 +310,122 @@ from
 
 /*
     Analysis 5 Results:
-    - Offenses have increased since the MCPP was implemented, despite the 8 years it has been in place
+    - Offenses have increased since the MCPP was implemented, despite only 8 years it has been in place
     - Avg. offenses per year, min offenses per year, and max offenses per year have all increased
 	after the MCPP was implemented
-    - Based on this data, the MCPP program has had a major impact on offenses reported after its implementation!
+    - Based on this data, we don't know if crime rate has increased, or law enforcement
+	is doing a better job on cracking down on crime
+*/
+
+/*
+    Analysis 5 Continued:
+    - Implement washington_law_enforcement_employee_count table into the queries
+	so we can see if enforcement in Seattle has increased or decreased
+    - Then relate the results to crimes after the MCPP was implemented
+*/
+
+-- Only select records within the Seattle Police Department 
+
+select
+    w.*
+from
+    washington_police_employee_count w
+where
+    w.agency = 'Seattle Police Department' 
+    -- Only output values with 'Seattle Police Department' agency
+	
+/*
+    Delete records not using Seattle Police Department since
+    we are only dealing with the city of Seattle in our project
+*/
+
+delete from washington_police_employee_count
+    where
+        agency != 'Seattle Police Department'
+	-- Delete every record not equal to the Seattle Police Department
+	
+/*
+    Add agency column into sdp_crime_data table to give a key 
+    that can join to washington_police_employee_count
+*/
+
+alter table sdp_crime_data
+add column agency varchar(255);
+
+/*
+    Agency records in sdp_crime_data are null so 
+    we can populate the column using an update function
+*/
+
+update sdp_crime_data
+    set agency = 'Seattle Police Department' -- We are ONLY dealing with Seattle Police Department data
+	
+-- Also add and populate agency_id = '1' since we are only dealing with one agency
+
+alter table sdp_crime_data
+add column agency_id id;
+
+update sdp_crime_data
+    set agency_id = '1' -- Match the agency_id in employee table with agency_id in crime table
+	
+-- Tables are cleaned, we can start analyzing now
+
+-- Find the employee count of each year from 2008-2022
+
+with sdp_employment_rate as (
+    select distinct 
+       w.year_num
+     , w.total_fulltime_employees 
+       -- dataset already has a column of total employees in a given year
+    from
+       wa_police_employment w
+    where
+       w.year_num between 2008 and 2022 -- filter values between 2008 and 2022
+    group by
+	w.year_num
+      , w.total_fulltime_employees
+	
+)  -- CTE outputting the employment rate of officers from 2008-2022
+
+
+, total_offenses_per_year as (
+	select
+	    date_part('year', s.offense_date) as year_num -- part out year from offense_date
+	  , count(*) as total_offenses -- count how many offenses are in a year 
+	from
+	    sdp_crime_data s
+	where
+	    date_part('year', s.offense_date) between 2008 and 2022
+	    -- select values between 2008-2022 for data accuracy
+	group by 
+	    year_num
+	order by
+	    year_num asc -- order years by ascending order
+	
+) -- CTE that counts up total offenses per year
+
+select 
+    s.year_num
+  , s.total_fulltime_employees
+  , t.total_offenses
+  , (s.total_fulltime_employees/(t.total_offenses/1000)) as employees_per_thousand_offenses
+     -- Calculate how many employees there are per 1000 offenses each year
+from
+    sdp_employment_rate s
+	join total_offenses_per_year t
+		on s.year_num = t.year_num 
+		   -- Join the CTEs using the year column so we can match the years
+group by
+    s.year_num
+  , s.total_fulltime_employees
+  , t.total_offenses
+  , employees_per_thousand_offenses
+
+/*
+    After running this query, we can see that from 2008-2022 crime continously
+    rises in Seattle, while simultaneously employees per 1000 offenses continues to drop.
+    In 2022 alone 74000 offenses were reported, while only 19 employees per 1000 crimes
+    were employed.
 */
 	
 /*
