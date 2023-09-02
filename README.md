@@ -365,8 +365,11 @@ This table shows the top five offense types with most reports and the percent di
 
 ### Analysis 5 Results Continued:
 
-  	To determine whether or not enforcement has increased, or crime rate increased, I included a dataset from waspc.org that includes the full time law enforcement count of ever police department in Washington from 1980-2022. 
-    For the relevance of this project, I narrowed the data down to records that are only from the Seattle Police Department, 
+    To determine whether or not enforcement has increased, or crime rate increased, 
+    I included a dataset from waspc.org that includes the full time law enforcement count of ever police department in Washington 
+    from 1980-2022. 
+    For the relevance of this project, I narrowed the data down to records that 
+    are only from the Seattle Police Department, 
     and are between 2008 and 2022.
 
      After running this query, we can see that from 2008-2022 crime continously rises in Seattle, 
