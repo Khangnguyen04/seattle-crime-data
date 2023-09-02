@@ -49,11 +49,16 @@ For best use, pull up the SQL code found in this repo and split screen the docum
 
 ### Data Cleaning
 
-      - I reformatted 'offense_date' and 'report_date' with Pacific Daylight Time time zone since using SQL deals with systems from different parts of the world, I need to present timestamps consistently across different time zones.
+      - I reformatted 'offense_date' and 'report_date' with Pacific Daylight 
+      Time time zone since using SQL deals with systems from different parts 
+      of the world, I need to present timestamps consistently across different time zones.
       
-      - I removed columns group_a_b, offense_code, sector, and beat since I will not be used these columns within my analysis.
+      - I removed columns group_a_b, offense_code, sector, and beat since I 
+      will not be used these columns within my analysis.
       
-      - Deleted all records from 1908-2007 since these records are inaccurate and do not add value to the timely data from 2008-2022. 2023 will not be used in most of these queries since we still have four months until the end of the year.
+      - Deleted all records from 1908-2007 since these records are inaccurate 
+      and do not add value to the timely data from 2008-2022. 2023 will not be 
+      used in most of these queries since we still have four months until the end of the year.
       
       - The data is cleaned and prepared for analysis
         
@@ -76,20 +81,24 @@ For best use, pull up the SQL code found in this repo and split screen the docum
           
               - Use 'round(avg))' to average the amount of crimes committed per month, and round to 0
               
-              - Finally order the query by 'avg_offenses_per_month desc' to rank the months by most average offenses
+              - Finally order the query by 'avg_offenses_per_month desc' 
+	      to rank the months by most average offenses
 
 ### Analysis 2:
      Historically, what years have the most crimes? Why might some years have more crimes than others?
 
-      * **The query will take the year out of 'offense_date' to see the count of offenses associated with the specific year**
+      * The query will take the year out of 'offense_date' to see the 
+      count of offenses associated with the specific year
         
             - Use 'date_part' to part year out of timestamp
             
             - Use 'count(*)' to count how many crimes are in each year
 
-      * The next query finds the months where crime spiked in 2020 (the year in the dataset with the most crimes)
+      * The next query finds the months where crime spiked in 2020 
+      (the year in the dataset with the most crimes)
         
-            - Create an index table for the database to search for offenses in 2020 quickly without sacrificing query speed and performance
+            - Create an index table for the database to search for offenses 
+	    in 2020 quickly without sacrificing query speed and performance
             
             - Use 'create index' to create the index on offense dates
             
@@ -97,7 +106,8 @@ For best use, pull up the SQL code found in this repo and split screen the docum
             
             - Use 'count(*)' to count the total offenses per month in 2020
             
-            - Use 'where' to filter out values to only use data between ' 2020-01-01' and '2020-12-31' to ensure we only use values in 2020
+            - Use 'where' to filter out values to only use data between 
+	    ' 2020-01-01' and '2020-12-31' to ensure we only use values in 2020
             
             - Use 'group by' to group the offenses by month
             
@@ -106,40 +116,56 @@ For best use, pull up the SQL code found in this repo and split screen the docum
 ### Analysis 3:
       How fast do on average, do people report offenses?
 
-        * Use a subquery to calculate the time it takes for each offense to be reported after it was committed. The parent query calculates the average time it takes for every offense to be reported
+        * Use a subquery to calculate the time it takes for each offense to be 
+	reported after it was committed. The parent query calculates the average 
+ 	time it takes for every offense to be reported
 
         * Subquery
         
-            - Use 'age' to return the time between the report date and offense date. Name this function as 'report_time' for the parent query
+            - Use 'age' to return the time between the report date and offense
+	    date. Name this function as 'report_time' for the parent query
 	    
-	    - Use 'where' clause to filter the average time for reports that occur only in 2023 for recency purposes
+	    - Use 'where' clause to filter the average time for reports that 
+     	    occur only in 2023 for recency purposes
 
         * Parent Query
         
-            - Use 'avg' to find the average amount of time for a report to be made after an offense
+            - Use 'avg' to find the average amount of time for a report to 
+	    be made after an offense
 
 ### Analysis 4:
     On average, what offenses happen the most throughout the years?
 
-      * Use another subquery that counts up the crimes associated with the given offense. The parent query ranks the specific offense by the number of offenses it has each year
+      * Use another subquery that counts up the crimes associated with 
+      the given offense. The parent query ranks the specific offense by 
+      the number of offenses it has each year
 
       * Subquery
       
           - Use 'date_part' to part out the year out of 'offense_date'
-          - Use 'count(*)' to count up all crimes associated with a specific offense and year
+          - Use 'count(*)' to count up all crimes associated with a 
+	  specific offense and year
 
       * Parent Query
       
-          - Use the 'rank()' window function to rank the most offenses in the given year. Partition the rank by 'year_num' and order the rank by 'offense_count' desc 
+          - Use the 'rank()' window function to rank the most offenses in 
+	  the given year. Partition the rank by 'year_num' and order the 
+   	  rank by 'offense_count' desc 
 
       * Find out what 'All Other Larceny' means
       
-          - Use select statement to find the records labeled offense of 'All Other Larceny'
+          - Use select statement to find the records labeled offense 
+	  of 'All Other Larceny'
           
-          - Use 'iLike' function in 'where' clause to select all records with offense of 'All Other Larceny'. The 'iLike' function selects every record with the specific condition while ignoring case sensitivity, in case some records ignore case sensitivity.
+          - Use 'iLike' function in 'where' clause to select all records 
+	  with offense of 'All Other Larceny'. The 'iLike' function selects 
+   	  every record with the specific condition while ignoring case 
+      	  sensitivity, in case some records ignore case sensitivity.
 
 ### Analysis 5:
-    The MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle. Since its establishment in 2015, have offenses reported increased in the communities?
+    The MCPP (Micro Community Policing Plans) program includes regularly 
+    police-monitored cities in Seattle. Since its establishment in 2015, 
+    have offenses reported increased in the communities?
     
     *  The first CTE will be used to sum up the number of offenses per year
     
@@ -149,7 +175,8 @@ For best use, pull up the SQL code found in this repo and split screen the docum
     *  The third CTE is a statistical summary of the years after the MCPP 
        was implemented (2015-2022)
        
-    * Statistical summaries will compare average, min, and max crimes within the years before and after the MCPP was implemented
+    * Statistical summaries will compare average, min, and max crimes 
+    within the years before and after the MCPP was implemented
           
     * First CTE
     
@@ -157,33 +184,46 @@ For best use, pull up the SQL code found in this repo and split screen the docum
         
             - Use 'date_part' to part out the year value from offense date
             
-            - Use 'count(*)' to count the offenses by offense type. Label this as 'offense_count'
+            - Use 'count(*)' to count the offenses by offense type. Label 
+	    this as 'offense_count'
 
         * Parent Query
 
-            - Use 'sum' function to sum up 'offense_count' in the subquery. Group the sum by year number to get the total number of offenses for every year.
+            - Use 'sum' function to sum up 'offense_count' in the subquery. 
+	    Group the sum by year number to get the total number of offenses 
+     	    for every year.
 
     * Second CTE
 
-        - Use 'round(avg)', 'round(min)', and 'round(max)' to find the average amount of crimes per year, minimum amt. of crimes, and max number of crimes in all of the years before the MCPP was set in place
+        - Use 'round(avg)', 'round(min)', and 'round(max)' to find the average 
+	amount of crimes per year, minimum amt. of crimes, and max number of crimes 
+ 	in all of the years before the MCPP was set in place
         
-        - Use the 'where' clause to filter only the year numbers between '2008' and '2014' (the years before MCPP was implemented)
+        - Use the 'where' clause to filter only the year numbers between 
+	'2008' and '2014' (the years before MCPP was implemented)
 
     * Third CTE
 
-        - Use 'round(avg)', 'round(min)', and 'round(max)' to find the average amount of crimes per year, minimum amt. of crimes, and max number of crimes in all of the years after the MCPP was set in place. Round the numbers to the nearest 0.
+        - Use 'round(avg)', 'round(min)', and 'round(max)' to find the average 
+	amount of crimes per year, minimum amt. of crimes, and max number of crimes 
+ 	in all of the years after the MCPP was set in place. Round the numbers to 
+  	the nearest 0.
         
-        - Use the 'where' clause to filter only the year numbers between '2015' and '2022' (the years after MCPP was implemented)
+        - Use the 'where' clause to filter only the year numbers between 
+	'2015' and '2022' (the years after MCPP was implemented)
 
     * Statistical Summary
 
-        - Compare all 'before MCPP' KPIs against all 'after MCPP' KPIs to see if offenses reported have increased after its implementation
+        - Compare all 'before MCPP' KPIs against all 'after MCPP' KPIs 
+	to see if offenses reported have increased after its implementation
 	
 ### Analysis 5 Continued:
-	Implement wa_police_employee_count table into the queries so we can see if enforcement in Seattle has increased or decreased
-	then relate the results to crimes after the MCPP was implemented.
+	Implement wa_police_employee_count table into the queries so we can see 
+ 	if enforcement in Seattle has increased or decreased then relate the 
+  	results to crimes after the MCPP was implemented.
 
-    * Use 'delete from' to remove all records not using the 'Seattle Police Department' agency
+    * Use 'delete from' to remove all records not using the 
+    'Seattle Police Department' agency
 
     * Add one 'agency' column into 'sdp_crime_data' to denote that
     every record in that table is from the Seattle Police Department
@@ -219,14 +259,21 @@ For best use, pull up the SQL code found in this repo and split screen the docum
        	  to get the records to match to their corresponding year
        
 ### Analysis 6:
-    Which communities have the lowest crime rates and highest crime rates? Does population density correlate with crime rates?
+    Which communities have the lowest crime rates and highest crime rates? 
+    Does population density correlate with crime rates?
 
     * In the data, how many communities reside in the MCPP program?
 
-        - Use a 'count(distinct) function to count how many communities show up on the data, and use 'distinct' to eliminate duplicate values
+        - Use a 'count(distinct) function to count how many communities 
+	show up on the data, and use 'distinct' to eliminate duplicate values
 
 
-    *  The next query is almost identical to the 'offenses_per_year' CTE in analysis 5. However, I replaced 'offense' in the CTE to 'mcpp' to group crimes by the MCPP community. I also replaced 'sum' in the query after it with 'round((avg))' to find the average crimes per year in a community, and finally I join the 'mcpp_population' table to the 'sdp_crime_data' table in order to pull population sizes in each community to see if higher populations correlate with crime rates.
+    *  The next query is almost identical to the 'offenses_per_year' CTE in analysis 5. 
+    However, I replaced 'offense' in the CTE to 'mcpp' to group crimes by the MCPP community. 
+    I also replaced 'sum' in the query after it with 'round((avg))' to find the average crimes 
+    per year in a community, and finally I join the 'mcpp_population' table to the 'sdp_crime_data' 
+    table in order to pull population sizes in each community to see if higher populations correlate 
+    with crime rates.
 
         * CTE
 
@@ -238,13 +285,17 @@ For best use, pull up the SQL code found in this repo and split screen the docum
 
         * Query
 
-            - Round the average offense count from the subquery to find how many crimes occurred, on average, in a certain community per year from 2008-2022.
+            - Round the average offense count from the subquery to find how many crimes 
+	    occurred, on average, in a certain community per year from 2008-2022.
             
-            - Use 'order by' to order the average_offenses_per_year by either ascending or descending order to see which communities have the most crimes on average.
+            - Use 'order by' to order the average_offenses_per_year by either ascending 
+	    or descending order to see which communities have the most crimes on average.
 
-     	    - Display the population side from the other table and give another alias of 'pop_size' 
+     	    - Display the population side from the other table and give another alias of 
+	     'pop_size' 
 
-     	    - Use an inner join to join 'mcpp_population' table to 'sdp_crime_data' table in order to show the population of each community along side it's average crimes.
+     	    - Use an inner join to join 'mcpp_population' table to 'sdp_crime_data' table 
+	  in order to show the population of each community along side it's average crimes.
 	      
 
 
@@ -262,9 +313,13 @@ Dashboard URL: [Seattle Crime Overview](https://public.tableau.com/app/profile/k
 
     Do more months have more crimes than others? Can crime be seasonal?
 
-    On average, May has the most crimes per month, with 6176 crimes per month. August, July, and September follow after. This data supports the studies concluding a positive correlation between high temperatures and increased crime rates.
+    On average, May has the most crimes per month, with 6176 crimes per month. August, 
+    July, and September follow after. This data supports the studies concluding a positive 
+    correlation between high temperatures and increased crime rates.
 
-    One study done by the National Bureau of Economic Research report analyzed violent crime patterns in 36 correctional facilities. The researchers discovered that days with high heat saw an increase of 18% in violence among inmates. 
+    One study done by the National Bureau of Economic Research report analyzed violent crime 
+    patterns in 36 correctional facilities. The researchers discovered that days with high 
+    heat saw an increase of 18% in violence among inmates. 
 
 [National Bureau of Economic Research report](https://www.nber.org/papers/w25961)
 
@@ -280,9 +335,11 @@ This bar chart displays the total offenses per month in 2023 (found in Seattle O
 
 ### Analysis 2 Results
     
-    Historically, what years have the most crimes? Why might some years have more crimes than others?
+    Historically, what years have the most crimes? Why might some years have more 
+    crimes than others?
 
-    2020 has the most crimes. 2020, 2018, 2022, 2017, and 2021 are the top five years with the most crimes
+    2020 has the most crimes. 2020, 2018, 2022, 2017, and 2021 are the top 
+    five years with the most crimes
 
     * May reported the most offenses in 2020 with a staggering 11692 crimes. 
         - On May 25th 2020, the death of George Floyd sparked major protests in the US. 
@@ -333,7 +390,8 @@ This bar chart displays the total offenses per month in 2023 (found in Seattle O
 
       On average, what offenses happen the most throughout the years?
 
-      From 2008-2022, larceny and theft occur the most. Aggravated assault follows right after in the data.
+      From 2008-2022, larceny and theft occur the most. Aggravated assault 
+      follows right after in the data.
 
  ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/59d561ef-e7fd-4467-918d-93c48f63082d)
 
@@ -348,11 +406,16 @@ This table shows the top five offense types with most reports and the percent di
 
 ### Analysis 5 Results
 
-      MCPP (Micro Community Policing Plans) program includes regularly police-monitored cities in Seattle and promotes a safer community for each one included. Since its establishment in 2015, have offenses reported increased since its implementation?
+      MCPP (Micro Community Policing Plans) program includes regularly police-monitored 
+      cities in Seattle and promotes a safer community for each one included. Since its 
+      establishment in 2015, have offenses reported increased since its implementation?
 
-      Offenses reported have increased since the MCPP was implemented, despite only 8 years it has been in place. Avg. offenses per year, min offenses per year, and max offenses per year have all increased after the MCPP was implemented
+      Offenses reported have increased since the MCPP was implemented, despite only 8 years 
+      it has been in place. Avg. offenses per year, min offenses per year, and max offenses 
+      per year have all increased after the MCPP was implemented
       
-      Based on this data, MCPP has either been successful in reporting more crimes, or crime rates have actually increased in Seattle.
+      Based on this data, MCPP has either been successful in reporting more crimes, or crime 
+      rates have actually increased in Seattle.
 
   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/7ab1e98d-29c3-4765-825b-9a96e4f554e9)
 
@@ -398,7 +461,8 @@ This table shows the top five offense types with most reports and the percent di
 
 ### Analysis 6 Results
 
-      Which communities have the lowest and highest crime rates? Does population density have a direct correlation with higher crime rates?
+      Which communities have the lowest and highest crime rates? Does population 
+      density have a direct correlation with higher crime rates?
 
       Communities with least crime rates and population:						
 		1. Commercial Harbor Island, 25 crimes/year, 10000 people
