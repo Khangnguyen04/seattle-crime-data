@@ -375,6 +375,8 @@ This table shows the top five offense types with most reports and the percent di
      while simultaneously employees per 1000 offenses continues to drop. 
      In 2022 alone 74000 offenses were reported, while only 1.38 employees per 1000 crimes were employed. 
 
+   [Washington Law Enforcement Full Time Employee Count](https://www.waspc.org/crime-statistics-reports)
+   
    ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/2d269e2f-283f-460b-838e-b7aac80fb523)
 
    (Found in Employment Rate and Crime Trends dashboard)
