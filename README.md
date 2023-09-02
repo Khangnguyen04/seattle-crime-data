@@ -444,7 +444,7 @@ This table shows the top five offense types with most reports and the percent di
 
    (Found in Employment Rate and Crime Trends dashboard)
 
-   * This graph shows the average employee count per 1000 crimes. We see here that the average drops significantly from 1.91 
+   * This graph shows the average employee count per thousand crimes. We see here that the average drops significantly from 1.91 
    employees/thousand offenses to 1.38 employees/thousand offenses within 2019-2022. Meaning there has been a drop in fulltime 
    employees stationed in the Seattle Police Department since 2019.
 
