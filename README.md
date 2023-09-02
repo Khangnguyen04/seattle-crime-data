@@ -430,13 +430,13 @@ This table shows the top five offense types with most reports and the percent di
 
     To determine whether or not enforcement has increased, or crime rate increased, 
     I included a dataset from waspc.org that includes the full time law enforcement count 
-    of ever police department in Washington from 1980-2022. For the relevance of this 
+    of every police department in Washington from 1980-2022. For the relevance of this 
     project, I narrowed the data down to records that are only from the Seattle 
     Police Department, and are between 2008 and 2022.
 
      After running this query, we can see that from 2008-2022 crime continously rises in Seattle, 
      while simultaneously employees per 1000 offenses continues to drop. 
-     In 2022 alone 74000 offenses were reported, while only 1.38 employees per 1000 crimes were employed. 
+     In 2022 alone 74000 offenses were reported, while only 1.38 employees per thousand crimes were employed. 
 
    [Washington Law Enforcement Full Time Employee Count](https://www.waspc.org/crime-statistics-reports)
    
