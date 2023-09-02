@@ -369,6 +369,23 @@ This table shows the top five offense types with most reports and the percent di
 
     	After running this query, we can see that from 2008-2022 crime continously rises in Seattle, while simultaneously employees per 1000 offenses continues to drop. In 2022 alone 74000 offenses were reported, while only 19 employees per 1000 crimes were employed. 
 
+   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/2d269e2f-283f-460b-838e-b7aac80fb523)
+
+   (Found in Employment Rate and Crime Trends dashboard)
+
+   * This graph shows the average employee count per 1000 crimes. We see here that the average drops significantly from 1.91 
+   employees/thousand offenses to 1.38 employees/thousand offenses within 2019-2022. Meaning there has been a drop in fulltime 
+   employees stationed in the Seattle Police Department since 2019.
+
+
+   ![image](https://github.com/Khangnguyen04/seattle-crime-data/assets/131831732/65e7efec-2038-4150-8fd0-1d30518e292b)
+
+   (Found in Employment Rate and Crime Trends dashboard)
+
+   * Another graph shows the relationship between the employment rate and number of offenses from 2015-2022 (after the MCPP was 
+     implemented). We see a decrease in the rate of employees per thousand offenses each year, and an increase in crimes per employee each year.
+
+   * Based on the data we found joining the washington law enforcement table, law enforcement staffing in Seattle has actually seen a dramatic decrease in the years after the MCPP was implemented, while crime rates have still been significantly going up. We can conclude that the MCPP may not have a profound effect on lessened crime rates.
 
 
 ### Analysis 6 Results
